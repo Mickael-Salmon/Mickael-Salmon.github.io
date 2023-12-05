@@ -1,3 +1,4 @@
+/* Empty css file that users can override in their own /static/css/custom.css file */
 .citations {
     margin: 20px 0;
     padding: 15px;
@@ -13,15 +14,9 @@
 
 .auteur {
     font-weight: bold;
-    display: block;
+    display: block; /* pour mettre le nom de l'auteur à la ligne */
 }
 
 .emoji {
     font-size: 1.5em;
-}
-
-.separateur {
-    height: 2px;
-    background-color: #34495e; /* Couleur du séparateur */
-    margin: 20px 0; /* Espacement avant et après le séparateur */
 }
