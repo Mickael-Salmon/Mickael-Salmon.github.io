@@ -39,3 +39,10 @@
 .sidebar-nav li a:hover {
     text-decoration: underline;
 }
+
+.rounded-image {
+    border-radius: 50%; /* Ceci rend l'image ronde */
+    width: 100px; /* Ajuste la largeur selon tes besoins */
+    height: 100px; /* Ajuste la hauteur pour correspondre à la largeur et garder l'image circulaire */
+    object-fit: cover; /* Cela s'assure que l'image couvre entièrement la zone sans être déformée */
+}
