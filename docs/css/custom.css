@@ -2,13 +2,12 @@
 .citations {
     margin: 20px 0;
     padding: 15px;
-    background-color: #f9f9f9;
     border-left: 4px solid #7f8c8d;
 }
 
 .citation {
     font-style: italic;
-    color: #34495e;
+    color: #dfe4ea;
     margin-bottom: 10px;
 }
 
@@ -32,7 +31,7 @@
 }
 
 .sidebar-nav li a {
-    color: var(--link-color);
+    color: #dadfe5;
     text-decoration: none;
     font-weight: bold;
 }
