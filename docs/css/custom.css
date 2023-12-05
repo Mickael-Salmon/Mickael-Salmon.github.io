@@ -21,7 +21,10 @@
 }
 
 .separateur {
-    height: 2px;
-    background-color: #34495e; /* Couleur du séparateur */
-    margin: 20px 0; /* Espacement avant et après le séparateur */
+    font-family: 'Courier New', monospace; /* Police de caractère à chasse fixe */
+    color: #34495e;
+    text-align: center;
+    margin: 20px 0;
+    letter-spacing: 2px; /* Espacement entre les caractères */
+    font-size: 1.2em;
 }
