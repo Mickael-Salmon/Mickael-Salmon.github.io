@@ -1,1 +1,22 @@
 /* Empty css file that users can override in their own /static/css/custom.css file */
+.citations {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #7f8c8d;
+}
+
+.citation {
+    font-style: italic;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.auteur {
+    font-weight: bold;
+    display: block; /* pour mettre le nom de l'auteur à la ligne */
+}
+
+.emoji {
+    font-size: 1.5em;
+}
