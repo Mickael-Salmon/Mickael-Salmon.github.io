@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de Poetry pour la gestion des dépendances en Python"
+title: "Partage Temporaire avec Ngrok: Fichiers & Applications Web"
 date: 2023-04-01
 tags: ["python", "ngrok", "partage", "fichiers", "applications", "web"]
 draft: false
