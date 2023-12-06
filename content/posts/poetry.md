@@ -1,9 +1,14 @@
-﻿
+﻿---
+title: "Utilisation de Poetry pour la gestion des dépendances en Python"
+date: 2023-04-01
+draft: false
+---
+
 # Utilisation de Poetry pour la gestion des dépendances en Python 🐍
 
 ## Introduction 📚
 
-Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
+Poetry, un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
 
 ## Installation 💻
 
