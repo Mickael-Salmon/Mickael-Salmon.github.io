@@ -5,8 +5,6 @@ tags: ["python", "project management", "linux", "microsoft", "développement", "
 draft: false
 ---
 
-**Mickaël - en quelques mots**
-
 Salut ! 👋 Moi, c'est Mickaël.
 
 Basé en Suisse romande, je suis quelqu'un qui se passionne pour l'univers de la technologie, toujours curieux d'apprendre et d'explorer de nouveaux horizons.
