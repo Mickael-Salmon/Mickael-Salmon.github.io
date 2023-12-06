@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on </title>
-    <link>/articles/</link>
+    <link>https://mickael-salmon.github.io/articles/</link>
     <description>Recent content in Articles on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Dec 2023 09:45:29 +0100</lastBuildDate><atom:link href="/articles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Dec 2023 09:45:29 +0100</lastBuildDate><atom:link href="https://mickael-salmon.github.io/articles/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Utilisation De Poetry</title>
-      <link>/articles/utilisation-de-poetry/</link>
+      <link>https://mickael-salmon.github.io/articles/_utilisationpoetry/</link>
       <pubDate>Wed, 06 Dec 2023 09:45:29 +0100</pubDate>
       
-      <guid>/articles/utilisation-de-poetry/</guid>
+      <guid>https://mickael-salmon.github.io/articles/_utilisationpoetry/</guid>
       <description>Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Introduction 📚 Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
 Installation 💻 macOS &amp;amp; Linux 🍎🐧 curl -sSL https://install.python-poetry.org | python3 - Windows 💻 (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicP) | python3 - Initialisation d&amp;rsquo;un nouveau projet 🌱 poetry new mon_projet Ou, si vous avez déjà un projet existant :</description>
     </item>

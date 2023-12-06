@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://mickael-salmon.github.io/"
 languageCode = "en-us"
 theme = "poison"
 publishDir = "docs"
@@ -26,7 +26,7 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
         # HasChildren:  If the directory's files should be listed.  Default is true.
         # Limit:        If the files should be listed, how many should be shown.
     menu = [
-        {Name = "Articles", URL = "/articles/", HasChildren = true},
+        {Name = "Articles", URL = "/articles/", HasChildren = true, Limit = 5},
         {Name = "Développement", URL = "/developpement/", HasChildren = true},
         {Name = "Systèmes", URL = "/systemes/", HasChildren = true},
         {Name = "Réseau", URL = "/reseau/", HasChildren = true},

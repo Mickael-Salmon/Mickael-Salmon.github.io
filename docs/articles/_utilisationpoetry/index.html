@@ -44,41 +44,43 @@
 
 
   
+
+
+
+
+
   
-
-
-
-
+  
+  
 
 
 <!-- Open Graph image and Twitter Card metadata -->
 
-<title itemprop="name">Poison</title>
-<meta property="og:title" content=Poison />
-<meta name="twitter:title" content=Poison />
-<meta itemprop="name" content=Poison />
-<meta name="application-name" content=Poison />
+<title itemprop="name">Poison - Utilisation De Poetry</title>
+<meta property="og:title" content=Poison&#32;-&#32;Utilisation&#32;De&#32;Poetry />
+<meta name="twitter:title" content=Poison&#32;-&#32;Utilisation&#32;De&#32;Poetry />
+<meta itemprop="name" content=Poison&#32;-&#32;Utilisation&#32;De&#32;Poetry />
+<meta name="application-name" content=Poison&#32;-&#32;Utilisation&#32;De&#32;Poetry />
 <meta property="og:site_name" content="" />
 
 
-<meta name="description" content="Update this description..." />
-<meta itemprop="description" content="Update this description..." />
-<meta property="og:description" content="Update this description..." />
-<meta name="twitter:description" content="Update this description..." />
+<meta name="description" content="" />
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
 
-<base href="https://mickael-salmon.github.io/" />
-<link rel="canonical" href="https://mickael-salmon.github.io/" itemprop="url" />
-<meta name="url" content="https://mickael-salmon.github.io/" />
-<meta name="twitter:url" content="https://mickael-salmon.github.io/" />
-<meta property="og:url" content="https://mickael-salmon.github.io/" />
+<base href="https://mickael-salmon.github.io/articles/_utilisationpoetry/" />
+<link rel="canonical" href="https://mickael-salmon.github.io/articles/_utilisationpoetry/" itemprop="url" />
+<meta name="url" content="https://mickael-salmon.github.io/articles/_utilisationpoetry/" />
+<meta name="twitter:url" content="https://mickael-salmon.github.io/articles/_utilisationpoetry/" />
+<meta property="og:url" content="https://mickael-salmon.github.io/articles/_utilisationpoetry/" />
 
 
 <meta property="og:updated_time" content=6012-06-09T1245:29:23&#43;0100 />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='https://mickael-salmon.github.io/sitemap.xml' />
-<link href="https://mickael-salmon.github.io/index.xml" rel="alternate" type="application/rss+xml" title="" />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -399,15 +401,99 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 </aside>
 
             <main class="content container">
-                <div class="posts">
+                <div class="post">
+  <div class="info">
+    <h1 class="post-title">
+        <a href="https://mickael-salmon.github.io/articles/_utilisationpoetry/">Utilisation De Poetry</a>
+    </h1>
+    
+        <time datetime="2023-12-06T09:45:29&#43;0100" class="post-date">
+            December 6, 2023
+        </time>
+    
+    
+    
+    
+    
     
     
 </div>
 
+  <h1 id="utilisation-de-poetry-pour-la-gestion-des-dépendances-en-python-">Utilisation de Poetry pour la gestion des dépendances en Python 🐍</h1>
+<h2 id="introduction-">Introduction 📚</h2>
+<p>Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.</p>
+<h2 id="installation-">Installation 💻</h2>
+<h3 id="macos--linux-">macOS &amp; Linux 🍎🐧</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -sSL https://install.python-poetry.org | python3 -
+</span></span></code></pre></div><h3 id="windows-">Windows 💻</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>(Invoke-WebRequest -Uri https<span style="color:#960050;background-color:#1e0010">:</span>//install.python-poetry.org -UseBasicP) | python3 -
+</span></span></code></pre></div><h2 id="initialisation-dun-nouveau-projet-">Initialisation d&rsquo;un nouveau projet 🌱</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry new mon_projet
+</span></span></code></pre></div><p>Ou, si vous avez déjà un projet existant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd mon_projet_existant/
+</span></span><span style="display:flex;"><span>poetry init
+</span></span></code></pre></div><h2 id="ajout-de-dépendances-">Ajout de dépendances ➕</h2>
+<p>Pour ajouter une dépendance à votre projet :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry add nom_du_paquet
+</span></span></code></pre></div><p>Pour les dépendances de développement :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry add --dev nom_du_paquet_dev
+</span></span></code></pre></div><h2 id="installation-des-dépendances-">Installation des dépendances ⬇️</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry install
+</span></span></code></pre></div><h2 id="mise-à-jour-des-dépendances-">Mise à jour des dépendances ⬆️</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry update
+</span></span></code></pre></div><h2 id="gestion-des-environnements-virtuels-">Gestion des environnements virtuels 🌐</h2>
+<p>Poetry crée automatiquement un environnement virtuel pour votre projet. Pour activer cet environnement :</p>
+<h3 id="macos--linux--1">macOS &amp; Linux 🍎🐧</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source <span style="color:#66d9ef">$(</span>poetry env info --path<span style="color:#66d9ef">)</span>/bin/activate
+</span></span></code></pre></div><h3 id="windows--1">Windows 💻</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>. $(poetry env info --path)/Scripts/Activate
+</span></span></code></pre></div><h2 id="conclusion-">Conclusion 🎉</h2>
+<p>Poetry est un outil puissant et flexible pour gérer vos projets Python. Il simplifie la gestion des dépendances et le packaging, ce qui vous permet de vous concentrer sur le développement.</p>
 
+  
+  <hr>
+<div class="footer">
+    
+	    
+	    
+    
+</div>
 
+  
+</div>
             </main>
             
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-">Introduction 📚</a></li>
+    <li><a href="#installation-">Installation 💻</a>
+      <ul>
+        <li><a href="#macos--linux-">macOS &amp; Linux 🍎🐧</a></li>
+        <li><a href="#windows-">Windows 💻</a></li>
+      </ul>
+    </li>
+    <li><a href="#initialisation-dun-nouveau-projet-">Initialisation d&rsquo;un nouveau projet 🌱</a></li>
+    <li><a href="#ajout-de-dépendances-">Ajout de dépendances ➕</a></li>
+    <li><a href="#installation-des-dépendances-">Installation des dépendances ⬇️</a></li>
+    <li><a href="#mise-à-jour-des-dépendances-">Mise à jour des dépendances ⬆️</a></li>
+    <li><a href="#gestion-des-environnements-virtuels-">Gestion des environnements virtuels 🌐</a>
+      <ul>
+        <li><a href="#macos--linux--1">macOS &amp; Linux 🍎🐧</a></li>
+        <li><a href="#windows--1">Windows 💻</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion-">Conclusion 🎉</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
         </div>
     </body>
 </html>
