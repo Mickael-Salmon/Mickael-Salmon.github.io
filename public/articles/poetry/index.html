@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+   · Mickaël Salmon
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mickaël Salmon">
+<meta name="description" content="Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
+Installation 💻 Link to heading macOS &amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
+Installation 💻 Link to heading macOS &amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install."/>
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
+Installation 💻 Link to heading macOS &amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mickael-salmon.github.io/articles/poetry/" /><meta property="article:section" content="articles" />
+
+
+
+
+
+
+<link rel="canonical" href="https://mickael-salmon.github.io/articles/poetry/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css" integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66&#43;O2HK0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Mickaël Salmon
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mickael-salmon.github.io/articles/poetry/">
+          
+        </a>
+      </h1>
+    </header>
+
+    <h1 id="utilisation-de-poetry-pour-la-gestion-des-dépendances-en-python-">
+  Utilisation de Poetry pour la gestion des dépendances en Python 🐍
+  <a class="heading-link" href="#utilisation-de-poetry-pour-la-gestion-des-d%c3%a9pendances-en-python-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="introduction-">
+  Introduction 📚
+  <a class="heading-link" href="#introduction-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.</p>
+<h2 id="installation-">
+  Installation 💻
+  <a class="heading-link" href="#installation-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="macos--linux-">
+  macOS &amp; Linux 🍎🐧
+  <a class="heading-link" href="#macos--linux-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -sSL https://install.python-poetry.org | python3 -
+</span></span></code></pre></div><h3 id="windows-">
+  Windows 💻
+  <a class="heading-link" href="#windows-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>(Invoke-WebRequest -Uri https<span style="color:#f85149">:</span>//install.python-poetry.<span style="color:#79c0ff">org</span> -UseBasicP) | python3 -
+</span></span></code></pre></div><h2 id="initialisation-dun-nouveau-projet-">
+  Initialisation d&rsquo;un nouveau projet 🌱
+  <a class="heading-link" href="#initialisation-dun-nouveau-projet-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry new mon_projet
+</span></span></code></pre></div><p>Ou, si vous avez déjà un projet existant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd mon_projet_existant/
+</span></span><span style="display:flex;"><span>poetry init
+</span></span></code></pre></div><h2 id="ajout-de-dépendances-">
+  Ajout de dépendances ➕
+  <a class="heading-link" href="#ajout-de-d%c3%a9pendances-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Pour ajouter une dépendance à votre projet :</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry add nom_du_paquet
+</span></span></code></pre></div><p>Pour les dépendances de développement :</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry add --dev nom_du_paquet_dev
+</span></span></code></pre></div><h2 id="installation-des-dépendances-">
+  Installation des dépendances ⬇️
+  <a class="heading-link" href="#installation-des-d%c3%a9pendances-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry install
+</span></span></code></pre></div><h2 id="mise-à-jour-des-dépendances-">
+  Mise à jour des dépendances ⬆️
+  <a class="heading-link" href="#mise-%c3%a0-jour-des-d%c3%a9pendances-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>poetry update
+</span></span></code></pre></div><h2 id="gestion-des-environnements-virtuels-">
+  Gestion des environnements virtuels 🌐
+  <a class="heading-link" href="#gestion-des-environnements-virtuels-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Poetry crée automatiquement un environnement virtuel pour votre projet. Pour activer cet environnement :</p>
+<h3 id="macos--linux--1">
+  macOS &amp; Linux 🍎🐧
+  <a class="heading-link" href="#macos--linux--1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source <span style="color:#ff7b72">$(</span>poetry env info --path<span style="color:#ff7b72">)</span>/bin/activate
+</span></span></code></pre></div><h3 id="windows--1">
+  Windows 💻
+  <a class="heading-link" href="#windows--1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>. $(poetry env info --path)/Scripts/Activate
+</span></span></code></pre></div><h2 id="conclusion-">
+  Conclusion 🎉
+  <a class="heading-link" href="#conclusion-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Poetry est un outil puissant et flexible pour gérer vos projets Python. Il simplifie la gestion des dépendances et le packaging, ce qui vous permet de vous concentrer sur le développement.</p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2001 -
+    
+    2023
+     Mickaël Salmon 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

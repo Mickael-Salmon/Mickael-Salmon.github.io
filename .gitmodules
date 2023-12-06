@@ -1,3 +1,6 @@
 [submodule "themes/poison"]
 	path = themes/poison
 	url = https://github.com/lukeorth/poison.git
+[submodule "themes/hugo-coder"]
+	path = themes/hugo-coder
+	url = https://github.com/luizdepra/hugo-coder.git
