@@ -1,6 +1,7 @@
 ﻿---
 title: "Utilisation de Poetry pour la gestion des dépendances en Python"
 date: 2023-04-01
+tags: ["python", "poetry"]
 draft: false
 ---
 
