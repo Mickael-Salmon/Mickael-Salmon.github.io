@@ -55,7 +55,7 @@ style = "github-dark"
 [[menu.main]]
   name = "About"
   weight = 2
-  url = "A propos/"
+  url = "about/"
 [[menu.main]]
   name = "Projets"
   weight = 3
