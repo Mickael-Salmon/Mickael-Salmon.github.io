@@ -5,6 +5,151 @@
     <link>https://mickael-salmon.github.io/tags/</link>
     <description>Recent content in Tags on Mickaël Salmon</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://mickael-salmon.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>backend</title>
+      <link>https://mickael-salmon.github.io/tags/backend/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/backend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bcrypt</title>
+      <link>https://mickael-salmon.github.io/tags/bcrypt/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/bcrypt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>crm</title>
+      <link>https://mickael-salmon.github.io/tags/crm/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/crm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cryptography</title>
+      <link>https://mickael-salmon.github.io/tags/cryptography/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/cryptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datetime</title>
+      <link>https://mickael-salmon.github.io/tags/datetime/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/datetime/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>factoryboy</title>
+      <link>https://mickael-salmon.github.io/tags/factoryboy/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/factoryboy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>faker</title>
+      <link>https://mickael-salmon.github.io/tags/faker/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/faker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>frontend</title>
+      <link>https://mickael-salmon.github.io/tags/frontend/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/frontend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jwt</title>
+      <link>https://mickael-salmon.github.io/tags/jwt/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/jwt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>poetry</title>
+      <link>https://mickael-salmon.github.io/tags/poetry/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/poetry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgresql</title>
+      <link>https://mickael-salmon.github.io/tags/postgresql/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/postgresql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pytest</title>
+      <link>https://mickael-salmon.github.io/tags/pytest/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/pytest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://mickael-salmon.github.io/tags/python/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rich</title>
+      <link>https://mickael-salmon.github.io/tags/rich/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/rich/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sentry</title>
+      <link>https://mickael-salmon.github.io/tags/sentry/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/sentry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sqlalchemy</title>
+      <link>https://mickael-salmon.github.io/tags/sqlalchemy/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/tags/sqlalchemy/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

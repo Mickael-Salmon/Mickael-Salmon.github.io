@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Mickaël Salmon</title>
+    <link>https://mickael-salmon.github.io/tags/python/</link>
+    <description>Recent content in python on Mickaël Salmon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
+      <link>https://mickael-salmon.github.io/posts/poetry/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/poetry/</guid>
+      <description>Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry, un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
+Installation 💻 Link to heading macOS &amp;amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install.</description>
+    </item>
+    
+    <item>
+      <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
+      <link>https://mickael-salmon.github.io/projects/pythoncrm/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/projects/pythoncrm/</guid>
+      <description>Bienvenue ! Link to heading Vous trouverez ici le Projet 12 du parcours Développeur d&amp;rsquo;application - Python 👋 Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading GitHub Repository
+Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail.</description>
+    </item>
+    
+  </channel>
+</rss>

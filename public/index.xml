@@ -5,7 +5,28 @@
     <link>https://mickael-salmon.github.io/</link>
     <description>Recent content on Mickaël Salmon</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://mickael-salmon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
+      <link>https://mickael-salmon.github.io/posts/poetry/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/poetry/</guid>
+      <description>Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry, un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
+Installation 💻 Link to heading macOS &amp;amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install.</description>
+    </item>
+    
+    <item>
+      <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
+      <link>https://mickael-salmon.github.io/projects/pythoncrm/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/projects/pythoncrm/</guid>
+      <description>Bienvenue ! Link to heading Vous trouverez ici le Projet 12 du parcours Développeur d&amp;rsquo;application - Python 👋 Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading GitHub Repository
+Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail.</description>
+    </item>
+    
     <item>
       <title></title>
       <link>https://mickael-salmon.github.io/articles/poetry/</link>
@@ -14,25 +35,6 @@
       <guid>https://mickael-salmon.github.io/articles/poetry/</guid>
       <description>Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
 Installation 💻 Link to heading macOS &amp;amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://mickael-salmon.github.io/posts/poetry/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mickael-salmon.github.io/posts/poetry/</guid>
-      <description>Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry est un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
-Installation 💻 Link to heading macOS &amp;amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://mickael-salmon.github.io/projects/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mickael-salmon.github.io/projects/projects/</guid>
-      <description></description>
     </item>
     
   </channel>

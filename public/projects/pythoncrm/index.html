@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Utilisation de Poetry pour la gestion des dépendances en Python · Mickaël Salmon
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mickaël Salmon">
+<meta name="description" content="Bienvenue ! Link to heading Vous trouverez ici le Projet 12 du parcours Développeur d&rsquo;application - Python 👋 Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading GitHub Repository
+Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Utilisation de Poetry pour la gestion des dépendances en Python"/>
+<meta name="twitter:description" content="Bienvenue ! Link to heading Vous trouverez ici le Projet 12 du parcours Développeur d&rsquo;application - Python 👋 Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading GitHub Repository
+Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail."/>
+
+<meta property="og:title" content="Utilisation de Poetry pour la gestion des dépendances en Python" />
+<meta property="og:description" content="Bienvenue ! Link to heading Vous trouverez ici le Projet 12 du parcours Développeur d&rsquo;application - Python 👋 Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading GitHub Repository
+Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mickael-salmon.github.io/projects/pythoncrm/" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2023-04-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-01T00:00:00+00:00" />
+
+
+
+
+<link rel="canonical" href="https://mickael-salmon.github.io/projects/pythoncrm/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css" integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66&#43;O2HK0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Mickaël Salmon
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/A%20propos/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projets</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="https://mickael-salmon.github.io/projects/pythoncrm/">
+          Utilisation de Poetry pour la gestion des dépendances en Python
+        </a>
+      </h1>
+    </header>
+
+    <!-- raw HTML omitted -->
+<h1 id="bienvenue-">
+  Bienvenue !
+  <a class="heading-link" href="#bienvenue-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="vous-trouverez-ici-le-projet-12-du-parcours-développeur-dapplication---python-">
+  Vous trouverez ici le Projet 12 du parcours Développeur d&rsquo;application - Python 👋
+  <a class="heading-link" href="#vous-trouverez-ici-le-projet-12-du-parcours-d%c3%a9veloppeur-dapplication---python-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h1 id="développez-une-architecture-back-end-sécurisée-avec-python-et-sql">
+  Développez une architecture back-end sécurisée avec Python et SQL
+  <a class="heading-link" href="#d%c3%a9veloppez-une-architecture-back-end-s%c3%a9curis%c3%a9e-avec-python-et-sql">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p><img src="https://user.oc-static.com/upload/2023/07/26/16903799358611_P12-02.png" alt="Epic Events"></p>
+<p><a href="https://github.com/Mickael-Salmon/OCP12/"  class="external-link" target="_blank" rel="noopener">GitHub Repository</a></p>
+<h1 id="contexte">
+  Contexte
+  <a class="heading-link" href="#contexte">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Epic Events est une entreprise qui organise des événements (fêtes,
+réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship
+Management) pour améliorer leur travail.
+Le logiciel CRM permet de collecter et de traiter les données des clients
+et de leurs événements, tout en facilitant la communication entre les
+différents pôles de l&rsquo;entreprise.</p>
+<h1 id="comment-epic-events-fonctionne">
+  Comment Epic Events fonctionne
+  <a class="heading-link" href="#comment-epic-events-fonctionne">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Nos équipes opérationnelles sont divisées en trois départements :
+● le département commercial
+● le département support
+● le département gestion</p>
+<p>Les commerciaux démarchent les clients. Ils créent et mettent à jour
+leurs profils sur la plateforme. Lorsqu’un client souhaite organiser un
+événement, un collaborateur du département gestion crée un contrat et
+l’associe au client.</p>
+<h1 id="exigences-techniques-et-de-sécurité">
+  Exigences techniques et de sécurité
+  <a class="heading-link" href="#exigences-techniques-et-de-s%c3%a9curit%c3%a9">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Vous devrez utiliser Python 3 (la version 3.9 ou une version plus
+récente).
+● L’application sera faite en ligne de commande.
+● Vous devrez empêcher les injections SQL.
+● Vous devrez mettre en œuvre et faire appliquer le principe du
+moindre privilège lors de l&rsquo;attribution de l&rsquo;accès aux données.</p>
+<p>Veillez à ce que les utilisateurs n&rsquo;aient accès qu&rsquo;aux données dont
+ils ont besoin.</p>
+<p>● Une journalisation utile et efficace sera mise en place avec Sentry :
+les applications doivent consigner les exceptions et les erreurs
+produites</p>
+<p>Une fois le contrat signé, le commercial crée l’événement dans la
+plateforme et le département gestion désigne un membre du
+département support qui sera responsable de l’organisation et du
+déroulé de l’événement.</p>
+<h1 id="sécurité-et-top-10-owasp">
+  Sécurité et top 10 OWASP
+  <a class="heading-link" href="#s%c3%a9curit%c3%a9-et-top-10-owasp">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<ul>
+<li>
+<p><strong>Authentification Robuste</strong>: L&rsquo;application implémente une authentification des utilisateurs pour protéger contre les risques tels que l&rsquo;<strong>A01:2021 - Broken Access Control</strong>.</p>
+</li>
+<li>
+<p><strong>Gestion de Session Sécurisée</strong>: Les tokens JWT sont utilisés pour maintenir l&rsquo;état de connexion pour aide à prévenir les problèmes liés à l&rsquo;<strong>A02:2021 - Cryptographic Failures</strong>.</p>
+</li>
+<li>
+<p><strong>Stockage Sécurisé des Mots de Passe</strong>: Les mots de passe sont hachés et salés avec <code>bcrypt</code> pour contrer l&rsquo;<strong>A02:2021 - Cryptographic Failures</strong>.</p>
+</li>
+<li>
+<p><strong>Contrôle d&rsquo;Accès Basé sur les Rôles</strong>: Des décorateurs tels que <code>@admin_required</code> et <code>@authenticated</code> sont utilisés pour restreindre l&rsquo;accès à certaines fonctionnalités, relevant de l&rsquo;<strong>A01:2021 - Broken Access Control</strong>.</p>
+</li>
+<li>
+<p><strong>Validation des Entrées Utilisateur</strong>: Le code utilise des validations pour les champs tels que les emails, les numéros de téléphone et force une complexité de mots de passe ce qui peut contribuer à atténuer les risques d&rsquo;<strong>A03:2021 - Injection</strong>.</p>
+</li>
+<li>
+<p><strong>Gestion des Erreurs</strong>: Les erreurs sont gérées correctement pour ne pas exposer des détails sensibles, ce qui correspond à l&rsquo;<strong>A04:2021 - Insecure Design</strong>.</p>
+</li>
+<li>
+<p><strong>HTTPS/SSL</strong>: Bien que non mentionné explicitement dans le code, l&rsquo;utilisation de protocoles sécurisés pour la communication est essentielle pour l&rsquo;<strong>A02:2021 - Cryptographic Failures</strong>. L&rsquo;application s&rsquo;exécutant uniquement depuis le terminal, il est envisageable d&rsquo;effectuer une connexion SSH depuis un ordinateur distant pour accéder à l&rsquo;application, profitant ainsi d&rsquo;une connexion sécurisée via les paires de clés privées/publiques associées au fonctionnement de SSH.</p>
+</li>
+<li>
+<p><strong>Journalisation et Surveillance</strong>: L&rsquo;application implémente une  journalisation des erreurs avec <code>Sentry</code>qui pourrait être étendue pour surveiller les activités suspectes, pertinent pour l&rsquo;<strong>A08:2021 - Software and Data Integrity Failures</strong>.</p>
+</li>
+<li>
+<p><strong>Protection contre les injesctions SQL</strong>: L&rsquo;application utilise des requêtes paramétrées pour prévenir les injections SQL, ce qui est une bonne pratique pour lutter contre l&rsquo;<strong>A01:2021 - Broken Access Control</strong> et le code utilise l&rsquo;ORM SQLAlchemy, qui, par défaut, aide à prévenir les injections SQL en utilisant des requêtes paramétrées plutôt que de construire des requêtes SQL à partir de chaînes concaténées. C&rsquo;est une mesure de protection supplémentaire contre l&rsquo;<strong>A03:2021-Injection</strong> du Top 10 OWASP.</p>
+</li>
+<li>
+<p><strong>Le système de gestion des droits d&rsquo;accès</strong> (<code>accesscontrol</code>) dans l&rsquo;application respecte le principe du moindre privilège, qui est une pratique de sécurité fondamentale, correspondant à l&rsquo;<strong>A05:2021-Security Misconfiguration</strong> du Top 10 OWASP. Voici ce qui a été implémenté :</p>
+</li>
+<li>
+<p><strong>Authentification et gestion des sessions</strong> : Les utilisateurs doivent se connecter pour accéder à l&rsquo;application, garantissant que seules les personnes authentifiées peuvent interagir avec le système.</p>
+</li>
+<li>
+<p><strong>Contrôles d&rsquo;accès basés sur les rôles</strong> (<code>@admin_required</code>, <code>@authenticated</code>): Les décorateurs vérifient les rôles et les permissions avant d&rsquo;accéder à certaines fonctions, s&rsquo;assurant que les utilisateurs ne peuvent exécuter que les actions autorisées.</p>
+</li>
+<li>
+<p><strong>Permissions restreintes</strong> : Les actions sont limitées en fonction des rôles de l&rsquo;utilisateur, par exemple, seuls les administrateurs peuvent accéder aux fonctions d&rsquo;administration des employés.</p>
+</li>
+<li>
+<p><strong>Gestion des tokens JWT</strong> : L&rsquo;application utilise des tokens JWT pour gérer les sessions, limitant l&rsquo;accès aux utilisateurs avec un token valide.</p>
+</li>
+<li>
+<p><strong>Gestion des mots de passe</strong> : Les mots de passe sont hachés avec <code>bcrypt</code>, une bonne pratique pour contrer l&rsquo;<strong>A02:2021 - Cryptographic Failures</strong>.</p>
+</li>
+<li>
+<p><strong>Le CRUD a été implémenté</strong> via les models : CRUD est un acronyme pour Create, Read, Update, Delete, qui sont les quatre opérations de base pour la persistance des données.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create</td>
+<td>Créer de nouvelles entrées dans la base de données.</td>
+</tr>
+<tr>
+<td>Read</td>
+<td>Lire ou récupérer des données existantes.</td>
+</tr>
+<tr>
+<td>Update</td>
+<td>Mettre à jour ou modifier des données existantes.</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>Supprimer des données existantes.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Modèles SQLAlchemy</strong> : Les models définissent les droits d&rsquo;accès aux données pour les utilisateurs afin d&rsquo;aider à lutter contre l&rsquo;<strong>A01:2021 - Broken Access Control</strong>.</p>
+</li>
+<li>
+<p><strong>Utiliser une table <code>user_sessions</code></strong> sur la BD pour gérer les tokens de session pour adresser les points suivants :</p>
+</li>
+<li>
+<p><strong>Contrôle de session centralisé</strong> : Les sessions peuvent être gérées de manière centralisée, ce qui permet aux administrateurs de révoquer l&rsquo;accès immédiatement si nécessaire.</p>
+</li>
+<li>
+<p><strong>Minimisation des risques de vol de tokens</strong> : Stocker les tokens côté serveur au lieu de les laisser sur le disque dur de l&rsquo;utilisateur réduit le risque que ces tokens soient volés par des malwares ou fuités à travers des attaques XSS.</p>
+</li>
+<li>
+<p><strong>Gestion fine des accès</strong> : Permet d&rsquo;implémenter des stratégies de sécurité telles que l&rsquo;expiration de session ou des vérifications de sécurité supplémentaires pour des actions sensibles.Nous avons implémenté le login, logout et expiration de session.</p>
+</li>
+<li>
+<p><strong>Conformité aux bonnes pratiques de sécurité</strong> : Respecte le principe de moindre privilège et s&rsquo;aligne avec les recommandations OWASP pour la gestion des sessions et des authentifications.</p>
+</li>
+</ul>
+<h1 id="estimation-de-livraison">
+  Estimation de livraison
+  <a class="heading-link" href="#estimation-de-livraison">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>L’application CRM doit être livrée dans deux mois.</p>
+<h1 id="les-clients">
+  Les clients
+  <a class="heading-link" href="#les-clients">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<table>
+<thead>
+<tr>
+<th>Information</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nom complet</td>
+<td>Kevin Casey</td>
+</tr>
+<tr>
+<td>Email</td>
+<td><a href="mailto:kevin@startup.io" >kevin@startup.io</a></td>
+</tr>
+<tr>
+<td>Téléphone</td>
+<td>+678 123 456 78</td>
+</tr>
+<tr>
+<td>Nom de l’entreprise</td>
+<td>Cool Startup LLC</td>
+</tr>
+<tr>
+<td>Date de création (premier contact)</td>
+<td>18 avril 2021</td>
+</tr>
+<tr>
+<td>Dernière mise à jour/contact</td>
+<td>29 mars 2023</td>
+</tr>
+<tr>
+<td>Contact commercial chez Epic Events</td>
+<td>Bill Boquet</td>
+</tr>
+</tbody>
+</table>
+<h1 id="les-contrats">
+  Les contrats
+  <a class="heading-link" href="#les-contrats">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Un contrat contient :
+● un identifiant unique ;
+● les informations sur le client ;
+● le contact commercial pour le contrat (= le commercial associé au
+client) ;
+● le montant total du contrat ;
+● le montant restant à payer ;
+● la date de création du contrat ;
+● le statut du contrat (= si le contrat a été signé).</p>
+<h1 id="les-événements">
+  Les événements
+  <a class="heading-link" href="#les-%c3%a9v%c3%a9nements">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>À l’heure actuelle, le département support utilise une feuille Excel pour
+suivre les événements. Voici deux exemples d’événements :</p>
+<h2 id="exemple-1">
+  Exemple 1
+  <a class="heading-link" href="#exemple-1">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John Ouick Wedding</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Event ID 109</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Contract ID 652</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Client name John Ouick</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Client contact <a href="mailto:john.ouick@gmail.com" >john.ouick@gmail.com</a> <!-- raw HTML omitted -->+1 234 567 8901</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Event date start 4 Jun 2023 @ 1PM</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Event date end 5 Jun 2023 @ 2AM</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Support contact Kate Hastroff</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Location 53 Rue du Château, 41120 Candé-sur-Beuvron, France</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Attendees 75</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Notes Wedding starts at 3PM, by the river. <!-- raw HTML omitted --> Catering is organized, reception starts at 5PM.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemple-2">
+  Exemple 2
+  <a class="heading-link" href="#exemple-2">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Lou Bouzin General Assembly</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Event ID 1023</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Contract ID 412</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Client name Lou Bouzin</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Client contact Jacky Blangier <!-- raw HTML omitted --><a href="mailto:jacky@loubouzin.grd" >jacky@loubouzin.grd</a> <!-- raw HTML omitted -->+ 666 12345</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Event date start 5 May 2023 @ 3PM</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Event date end 5 May 2023 @ 5PM</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Support contact Aliénor Vichum</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Location Salle des fêtes de Mufflins</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Attendees 200</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Notes Assemblée générale des actionnaires (~200 personnes).</td>
+</tr>
+</tbody>
+</table>
+<h1 id="besoins-et-fonctionnalités">
+  Besoins et fonctionnalités
+  <a class="heading-link" href="#besoins-et-fonctionnalit%c3%a9s">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="besoins-généraux">
+  Besoins généraux
+  <a class="heading-link" href="#besoins-g%c3%a9n%c3%a9raux">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>Exigence</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identifiants pour chaque collaborateur</td>
+<td>Chaque collaborateur doit avoir ses propres identifiants pour utiliser la plateforme.</td>
+</tr>
+<tr>
+<td>Association des collaborateurs à un rôle</td>
+<td>Chaque collaborateur est associé à un rôle, dépendant de son département.</td>
+</tr>
+<tr>
+<td>Stockage et mise à jour des informations</td>
+<td>La plateforme doit permettre de stocker et de mettre à jour les informations concernant les clients, les contrats et les événements.</td>
+</tr>
+<tr>
+<td>Accès en lecture seule pour tous les collaborateurs</td>
+<td>Tous les collaborateurs doivent avoir la capacité d&rsquo;accéder à toutes les informations concernant les clients, les contrats et les événements en mode lecture seule.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="besoins-individuels--équipe-de-gestion">
+  Besoins individuels : équipe de gestion
+  <a class="heading-link" href="#besoins-individuels--%c3%a9quipe-de-gestion">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>Fonctionnalité</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Créer, mettre à jour et supprimer des collaborateurs</td>
+<td>Permet de créer, mettre à jour et supprimer des collaborateurs dans le système CRM.</td>
+</tr>
+<tr>
+<td>Créer et modifier tous les contrats</td>
+<td>Autorise la création et la modification de tous les contrats dans le système.</td>
+</tr>
+<tr>
+<td>Filtrer l’affichage des événements</td>
+<td>Permet de filtrer l&rsquo;affichage des événements, par exemple, afficher tous les événements sans « support » associé.</td>
+</tr>
+<tr>
+<td>Modifier des événements</td>
+<td>Autorise la modification d&rsquo;événements, y compris l&rsquo;association d&rsquo;un collaborateur support à l&rsquo;événement.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="besoins-individuels--équipe-commerciale">
+  Besoins individuels : équipe commerciale
+  <a class="heading-link" href="#besoins-individuels--%c3%a9quipe-commerciale">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>Fonctionnalité</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Créer des clients</td>
+<td>Permet aux utilisateurs de créer des clients, qui seront automatiquement associés à eux.</td>
+</tr>
+<tr>
+<td>Mettre à jour les clients responsables</td>
+<td>Autorise les utilisateurs à mettre à jour les informations des clients dont ils sont responsables.</td>
+</tr>
+<tr>
+<td>Modifier/mettre à jour les contrats des clients</td>
+<td>Permet de modifier ou de mettre à jour les contrats des clients dont les utilisateurs sont responsables.</td>
+</tr>
+<tr>
+<td>Filtrer l’affichage des contrats</td>
+<td>Autorise le filtrage des contrats selon certains critères, comme ceux qui ne sont pas encore signés ou pas encore entièrement payés.</td>
+</tr>
+<tr>
+<td>Créer un événement pour un client avec contrat</td>
+<td>Permet de créer un événement pour un client qui a signé un contrat, offrant une gestion événementielle intégrée pour les clients sous contrat.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="besoins-individuels--équipe-support">
+  Besoins individuels : équipe support
+  <a class="heading-link" href="#besoins-individuels--%c3%a9quipe-support">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<table>
+<thead>
+<tr>
+<th>Fonctionnalité</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filtrer l&rsquo;affichage des événements</td>
+<td>Permet de filtrer l&rsquo;affichage des événements pour n&rsquo;afficher que ceux attribués à l&rsquo;utilisateur.</td>
+</tr>
+<tr>
+<td>Mettre à jour les événements responsables</td>
+<td>Autorise les utilisateurs à mettre à jour les événements dont ils sont responsables.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="représentation-des-parcours-utilisateur-dans-lapplication">
+  Représentation des parcours utilisateur dans l&rsquo;application
+  <a class="heading-link" href="#repr%c3%a9sentation-des-parcours-utilisateur-dans-lapplication">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
+    A[Département Commercial] --&gt;|Démarche et crée/mise à jour des profils clients| B[Plateforme]
+    C[Département Gestion] --&gt;|Crée un contrat et l&#39;associe au client| B
+    B --&gt;|Contrat signé| D[Commercial crée l&#39;événement dans la plateforme]
+    E[Département Gestion] --&gt;|Désigne un membre du Support| F[Département Support]
+    F --&gt;|Responsable de l&#39;organisation et du déroulé de l&#39;événement| G[Événement]
+</code></pre><h2 id="résumé-du-cahier-des-charges">
+  Résumé du cahier des charges
+  <a class="heading-link" href="#r%c3%a9sum%c3%a9-du-cahier-des-charges">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><strong>Entreprise</strong>: Epic Events, organisateur d&rsquo;événements</li>
+<li><strong>Objectif</strong>: Développer un logiciel CRM en Python 3.9+ pour la gestion des clients, contrats et événements.</li>
+<li><strong>Départements concernés</strong>: Commercial, Support, Gestion</li>
+<li><strong>Sécurité et contraintes techniques</strong>: Pas d&rsquo;injections SQL, principe du moindre privilège, journalisation avec Sentry.</li>
+<li><strong>Livraison</strong>: Dans un mois, en ligne de commande, avec une documentation d&rsquo;implémentation.</li>
+</ul>
+<h3 id="données-à-gérer">
+  Données à gérer
+  <a class="heading-link" href="#donn%c3%a9es-%c3%a0-g%c3%a9rer">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Clients</strong>: Nom, Email, Téléphone, etc.</li>
+<li><strong>Contrats</strong>: ID unique, infos sur le client, montant, etc.</li>
+<li><strong>Événements</strong>: ID, ID du contrat, nom du client, etc.</li>
+</ul>
+<h3 id="fonctionnalités">
+  Fonctionnalités
+  <a class="heading-link" href="#fonctionnalit%c3%a9s">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Tous les collaborateurs</strong>: Accès en lecture seule à toutes les données</li>
+<li><strong>Équipe de gestion</strong>: CRUD sur les collaborateurs, contrats et événements</li>
+<li><strong>Équipe commerciale</strong>: Gestion des clients et contrats</li>
+<li><strong>Équipe support</strong>: Filtrage et mise à jour des événements</li>
+<li><strong>Administration</strong>: Gestion des employés</li>
+</ul>
+<hr>
+<h1 id="guide-dimplémentation">
+  Guide d&rsquo;implémentation
+  <a class="heading-link" href="#guide-dimpl%c3%a9mentation">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="architecture-générale">
+  Architecture générale
+  <a class="heading-link" href="#architecture-g%c3%a9n%c3%a9rale">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Modèle MVC (Modèle-Vue-Contrôleur) pour séparer les responsabilités</li>
+<li>Base de données POSTGRES SQL pour un prototype rapide (en gardant à l&rsquo;esprit les contraintes de sécurité)</li>
+</ul>
+<h3 id="authentification">
+  Authentification
+  <a class="heading-link" href="#authentification">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Utilisation de jetons JWT pour authentifier les collaborateurs</li>
+</ul>
+<h3 id="département-commercial--sales">
+  Département Commercial / SALES
+  <a class="heading-link" href="#d%c3%a9partement-commercial--sales">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Interface en ligne de commande pour ajouter/mettre à jour les clients et contrats</li>
+<li>Filtres de recherche pour les contrats non signés, etc.</li>
+</ul>
+<h3 id="département-support--support">
+  Département Support / SUPPORT
+  <a class="heading-link" href="#d%c3%a9partement-support--support">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Interface pour filtrer et mettre à jour les événements qui leur sont attribués</li>
+<li>Notifications pour les changements d&rsquo;état des événements</li>
+</ul>
+<h3 id="département-gestion--accounting">
+  Département Gestion / ACCOUNTING
+  <a class="heading-link" href="#d%c3%a9partement-gestion--accounting">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Interface admin pour la gestion des collaborateurs, contrats et événements</li>
+<li>Filtres pour afficher les événements sans support, etc.</li>
+</ul>
+<h3 id="département-administration--admin">
+  Département Administration / ADMIN
+  <a class="heading-link" href="#d%c3%a9partement-administration--admin">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Utilisé comme un rôle pour filtrer une permission spéciale d&rsquo;accès au menu d&rsquo;administration pour la gestion des employés.</li>
+</ul>
+<h3 id="sécurité">
+  Sécurité
+  <a class="heading-link" href="#s%c3%a9curit%c3%a9">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Utilisation de requêtes paramétrées pour prévenir les injections SQL</li>
+<li>Implémentation du principe du moindre privilège via des rôles et permissions</li>
+</ul>
+<h3 id="journalisation">
+  Journalisation
+  <a class="heading-link" href="#journalisation">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Intégration de Sentry pour capturer les erreurs et exceptions</li>
+</ul>
+<h1 id="diagram-erd">
+  Diagram ERD
+  <a class="heading-link" href="#diagram-erd">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">erDiagram
+    Client ||--o{ Contract : has
+    Employee ||--o{ Contract : manages
+    Employee ||--o{ Event : organizes
+    Contract ||--o{ Event : results_in
+    Client {
+        int id
+        string full_name
+        string email
+        string phone
+        string company_name
+        date first_contact
+        date last_update
+        int commercial_contact_id
+    }
+    Contract {
+        int id
+        int client_id
+        int commercial_id
+        float total_amount
+        float amount_to_be_paid
+        date creation_date
+        string status
+    }
+    Employee {
+        int id
+        string full_name
+        string email
+        date creation_date
+        string department
+    }
+    Event {
+        int id
+        int contract_id
+        int support_contact_id
+        date start_date
+        date end_date
+        string location
+        int attendees
+        string notes
+    }
+</code></pre><h1 id="la-base-de-donnée">
+  La base de donnée
+  <a class="heading-link" href="#la-base-de-donn%c3%a9e">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="1-installation-de-postgresql-et-pgadmin">
+  1. Installation de PostgreSQL et PgAdmin:
+  <a class="heading-link" href="#1-installation-de-postgresql-et-pgadmin">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Les étapes d&rsquo;installation impliquent la disponiiblité d&rsquo;un server linux Fedora/RedHat/CentOS.</p>
+<h3 id="installation-du-server-psql">
+  Installation du server PSQL
+  <a class="heading-link" href="#installation-du-server-psql">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>PostgreSQL:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>sudo dnf update sudo dnf install postgresql-server postgresql-contrib
+</span></span></code></pre></div><h3 id="après-linstallation-initialiser-la-base-de-données">
+  Après l&rsquo;installation, initialiser la base de données:
+  <a class="heading-link" href="#apr%c3%a8s-linstallation-initialiser-la-base-de-donn%c3%a9es">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>sudo postgresql-setup --initdb
+</span></span></code></pre></div><h3 id="puis-démarrer-et-activer-le-service">
+  Puis démarrer et activer le service:
+  <a class="heading-link" href="#puis-d%c3%a9marrer-et-activer-le-service">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo systemctl start postgresql sudo systemctl enable postgresql
+</span></span></code></pre></div><h3 id="pgadmin">
+  PgAdmin:
+  <a class="heading-link" href="#pgadmin">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>sudo dnf install pgadmin4
+</span></span></code></pre></div><h2 id="2-créer-une-nouvelle-base-de-données">
+  2. Créer une nouvelle base de données:
+  <a class="heading-link" href="#2-cr%c3%a9er-une-nouvelle-base-de-donn%c3%a9es">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="shell--se-connecter-à-la-base-de-données-par-défaut-postgres-avec-lutilisateur-par-défaut-postgres-">
+  SHELL : Se connecter à la base de données par défaut (postgres) avec l&rsquo;utilisateur par défaut (postgres) :
+  <a class="heading-link" href="#shell--se-connecter-%c3%a0-la-base-de-donn%c3%a9es-par-d%c3%a9faut-postgres-avec-lutilisateur-par-d%c3%a9faut-postgres-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span> psql -U postgres -h localhost -d epic_events
+</span></span></code></pre></div><h3 id="créer-une-nouvelle-base-de-données-avec-le-nom--epic_events">
+  Créer une nouvelle base de données avec le nom : <code>epic_events</code>.
+  <a class="heading-link" href="#cr%c3%a9er-une-nouvelle-base-de-donn%c3%a9es-avec-le-nom--epic_events">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h2 id="3-créer-un-utilisateur-pour-lapplication">
+  3. Créer un utilisateur pour l&rsquo;application:
+  <a class="heading-link" href="#3-cr%c3%a9er-un-utilisateur-pour-lapplication">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Créer un nouvel utilisateur (ou &ldquo;Role&rdquo; dans le jargon PostgreSQL).</li>
+<li>Attribuer un nom et un mot de passe et assurer les droits suffisants sur la base de données epic_events.</li>
+</ul>
+<h2 id="4-configurer-les-variables-denvironnement">
+  4. Configurer les variables d&rsquo;environnement:
+  <a class="heading-link" href="#4-configurer-les-variables-denvironnement">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Les informations de connexion à la base de données dans des variables d&rsquo;environnement pour des raisons de sécurité. Nous utilisons la librairie  <code>dot_env</code></li>
+</ul>
+<h2 id="5-créer-un-environnement-virtuel-python">
+  5. Créer un environnement virtuel Python:
+  <a class="heading-link" href="#5-cr%c3%a9er-un-environnement-virtuel-python">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="dans-le-répertoire-du-projet-crée-un-environnement-virtuel">
+  Dans le répertoire du projet, crée un environnement virtuel:
+  <a class="heading-link" href="#dans-le-r%c3%a9pertoire-du-projet-cr%c3%a9e-un-environnement-virtuel">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>python3 <span style="color:#ff7b72;font-weight:bold">-</span>m venv <span style="color:#ff7b72;font-weight:bold">.</span>venv
+</span></span></code></pre></div><p>ou</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>virtualenv <span style="color:#ff7b72;font-weight:bold">.</span>venv
+</span></span></code></pre></div><h3 id="activer-lenvironnement">
+  Activer l&rsquo;environnement:
+  <a class="heading-link" href="#activer-lenvironnement">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>source .venv/bin/activate
+</span></span></code></pre></div><h3 id="installer-les-dépendances-comme-sqlalchemy-et-dot_env">
+  Installer les dépendances comme <code>SQLAlchemy</code> et <code>Dot_env</code>:
+  <a class="heading-link" href="#installer-les-d%c3%a9pendances-comme-sqlalchemy-et-dot_env">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="créer-un-fichier-pour-les-variables-denvironnement">
+  Créer un fichier pour les variables d&rsquo;environnement
+  <a class="heading-link" href="#cr%c3%a9er-un-fichier-pour-les-variables-denvironnement">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Crée un fichier <code>.env</code> dans le répertoire de ton projet</strong>. Ce fichier contiendra tes variables d&rsquo;environnement.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>touch .env
+</span></span></code></pre></div><h3 id="ouvrir-ce-fichier-avec-un-éditeur-de-texte-et-ajouter-les-variables">
+  Ouvrir ce fichier avec un éditeur de texte** et ajouter les variables.
+  <a class="heading-link" href="#ouvrir-ce-fichier-avec-un-%c3%a9diteur-de-texte-et-ajouter-les-variables">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Par exemple :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span><span style="color:#79c0ff">DATABASE_URL</span><span style="color:#ff7b72;font-weight:bold">=</span>postgresql://username:password@localhost/dbname <span style="color:#79c0ff">SECRET_KEY</span><span style="color:#ff7b72;font-weight:bold">=</span>mysecretkey
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">DATABASE_URL</span><span style="color:#ff7b72;font-weight:bold">=</span>postgresql://user:Password@localhost/epic_events
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">EPICEVENTS_USER</span><span style="color:#ff7b72;font-weight:bold">=</span>user
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">EPICEVENTS_PW</span><span style="color:#ff7b72;font-weight:bold">=</span>Password
+</span></span><span style="display:flex;"><span><span style="color:#79c0ff">EPICEVENTS_SK</span><span style="color:#ff7b72;font-weight:bold">=</span>mySecretKey
+</span></span></code></pre></div><p>Ici, <code>username</code> et <code>password</code> sont ceux définis lors de la création de l&rsquo;utilisateur PostgreSQL, et <code>dbname</code> est le nom de la base de données créée précédememnt.</p>
+<h3 id="pour-simplifier-linstallation-des-dépendances-nécessaires-au-projet">
+  Pour simplifier l&rsquo;installation des dépendances nécessaires au projet
+  <a class="heading-link" href="#pour-simplifier-linstallation-des-d%c3%a9pendances-n%c3%a9cessaires-au-projet">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>pip install -r requirements.txt
+</span></span></code></pre></div><h3 id="charger-les-variables-denvironnement-dans-lapplication">
+  Charger les variables d&rsquo;environnement dans l&rsquo;application
+  <a class="heading-link" href="#charger-les-variables-denvironnement-dans-lapplication">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Installer la librairie <code>python-dotenv</code></strong>: Cette librairie permet de charger les variables d&rsquo;environnement depuis un fichier <code>.env</code> dans le projet.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>pip install python-dotenv
+</span></span></code></pre></div><ol start="2">
+<li><strong>Charger les variables dans le code Python</strong>:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">dotenv</span> <span style="color:#ff7b72">import</span> load_dotenv <span style="color:#ff7b72">import</span> <span style="color:#ff7b72">os</span>  load_dotenv()  database_url <span style="color:#ff7b72;font-weight:bold">=</span> os<span style="color:#ff7b72;font-weight:bold">.</span>getenv(<span style="color:#a5d6ff">&#34;DATABASE_URL&#34;</span>) secret_key <span style="color:#ff7b72;font-weight:bold">=</span> os<span style="color:#ff7b72;font-weight:bold">.</span>getenv(<span style="color:#a5d6ff">&#34;SECRET_KEY&#34;</span>)
+</span></span></code></pre></div><p>Ici, <code>load_dotenv()</code> lit le fichier <code>.env</code> et charge les variables pour les utiliser avec `os.getenv().</p>
+<h1 id="démonstration">
+  Démonstration
+  <a class="heading-link" href="#d%c3%a9monstration">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Dans le cadre de ce projet, certains composants sont volontairement exclus de synchronisation avec GitHub comme le fichier .env pour illustrer une bonne pratique consistant à ne pas partager les informations sensibles sur un dépôt public.
+La base de donnée est également exclue de la synchronisation avec GitHub pour des raisons de sécurité. Un backup est disponible sur demande généré avec la commande suivante: <code>pg_dump -U postgres -W -F c -d epic_events &gt; backup_epicevents.backup </code></p>
+<h1 id="frontend">
+  FRONTEND
+  <a class="heading-link" href="#frontend">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Conformément au cahier de charges, la partie cliente est entièrement réalisée en ligne de commande en utilisant la librairie RICH.</p>
+<h1 id="backend">
+  BACKEND
+  <a class="heading-link" href="#backend">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Le backend est réalisé en Python 3.12 et utilise les librairies suivantes:</p>
+<table>
+<thead>
+<tr>
+<th>Dépendance</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bcrypt</td>
+<td>4.0.1</td>
+</tr>
+<tr>
+<td>certifi</td>
+<td>2023.7.22</td>
+</tr>
+<tr>
+<td>cffi</td>
+<td>1.16.0</td>
+</tr>
+<tr>
+<td>cryptography</td>
+<td>41.0.5</td>
+</tr>
+<tr>
+<td>DateTime</td>
+<td>5.2</td>
+</tr>
+<tr>
+<td>factory-boy</td>
+<td>3.3.0</td>
+</tr>
+<tr>
+<td>Faker</td>
+<td>19.13.0</td>
+</tr>
+<tr>
+<td>greenlet</td>
+<td>3.0.1</td>
+</tr>
+<tr>
+<td>iniconfig</td>
+<td>2.0.0</td>
+</tr>
+<tr>
+<td>Jinja2</td>
+<td>3.1.2</td>
+</tr>
+<tr>
+<td>markdown-it-py</td>
+<td>3.0.0</td>
+</tr>
+<tr>
+<td>MarkupSafe</td>
+<td>2.1.3</td>
+</tr>
+<tr>
+<td>mdurl</td>
+<td>0.1.2</td>
+</tr>
+<tr>
+<td>packaging</td>
+<td>23.2</td>
+</tr>
+<tr>
+<td>pluggy</td>
+<td>1.3.0</td>
+</tr>
+<tr>
+<td>psycopg2-binary</td>
+<td>2.9.9</td>
+</tr>
+<tr>
+<td>pwinput</td>
+<td>1.0.3</td>
+</tr>
+<tr>
+<td>pycparser</td>
+<td>2.21</td>
+</tr>
+<tr>
+<td>Pygments</td>
+<td>2.16.1</td>
+</tr>
+<tr>
+<td>PyJWT</td>
+<td>2.8.0</td>
+</tr>
+<tr>
+<td>PyMySQL</td>
+<td>1.1.0</td>
+</tr>
+<tr>
+<td>pytest</td>
+<td>7.4.3</td>
+</tr>
+<tr>
+<td>pytest-html</td>
+<td>4.1.1</td>
+</tr>
+<tr>
+<td>pytest-metadata</td>
+<td>3.0.0</td>
+</tr>
+<tr>
+<td>python-dateutil</td>
+<td>2.8.2</td>
+</tr>
+<tr>
+<td>python-dotenv</td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>pytz</td>
+<td>2023.3.post1</td>
+</tr>
+<tr>
+<td>rich</td>
+<td>13.6.0</td>
+</tr>
+<tr>
+<td>sentry-sdk</td>
+<td>1.34.0</td>
+</tr>
+<tr>
+<td>setuptools</td>
+<td>68.2.2</td>
+</tr>
+<tr>
+<td>six</td>
+<td>1.16.0</td>
+</tr>
+<tr>
+<td>SQLAlchemy</td>
+<td>2.0.23</td>
+</tr>
+<tr>
+<td>typing_extensions</td>
+<td>4.8.0</td>
+</tr>
+<tr>
+<td>urllib3</td>
+<td>2.0.7</td>
+</tr>
+<tr>
+<td>Werkzeug</td>
+<td>3.0.1</td>
+</tr>
+<tr>
+<td>zope.interface</td>
+<td>6.1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="structure-de-dossiers">
+  Structure de dossiers
+  <a class="heading-link" href="#structure-de-dossiers">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<table>
+<thead>
+<tr>
+<th>Dossier/Fichier</th>
+<th>Sous-Dossiers/Fichiers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>accesscontrol/</code></td>
+<td><code>auth_decorators.py</code>, <code>database_session.py</code>, <code>env_variables.py</code>, <code>functionnalities.py</code>, <code>__init__.py</code>, <code>jwt_token.py</code>, <code>load_current_user.py</code>, <code>sec_sessions.py</code>, <code>test_jwt_token.py</code></td>
+</tr>
+<tr>
+<td><code>conftest.py</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>controllers/</code></td>
+<td><code>authentication_controller.py</code>, <code>clients.py</code>, <code>contracts.py</code>, <code>employees.py</code>, <code>events.py</code>, <code>__init__.py</code>, <code>main_controller.py</code>, <code>reports.py</code></td>
+</tr>
+<tr>
+<td><code>factories/</code></td>
+<td><code>clientFactory.py</code>, <code>contractFactory.py</code>, <code>employeeFactory.py</code>, <code>__init__.py</code></td>
+</tr>
+<tr>
+<td><code>main.py</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>managers/</code></td>
+<td><code>clients.py</code>, <code>contracts.py</code>, <code>employees.py</code>, <code>events.py</code>, <code>__init__.py</code>, <code>manager.py</code></td>
+</tr>
+<tr>
+<td><code>models/</code></td>
+<td><code>clients.py</code>, <code>contracts.py</code>, <code>employees.py</code>, <code>events.py</code>, <code>__init__.py</code>, <code>user.py</code></td>
+</tr>
+<tr>
+<td><code>README.md</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>requirements.txt</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td><code>db/test_clients.py</code>, <code>db_create_tables.py</code>, <code>db_delete_tables.py</code>, <code>db_init.py</code>, <code>db_test_check_tables.py</code>, <code>db_test_connection.py</code>, <code>factories/</code>, <code>test_accounting_contract_Create.py</code>, <code>test_createEmployee.py</code>, <code>unit/settings_pytest.py</code>, <code>unit/test_create_customer.py</code>, <code>unit/test_createEmployee.py</code></td>
+</tr>
+<tr>
+<td><code>utils/</code></td>
+<td><code>database/clients_data.json</code>, <code>database/contracts_data.json</code>, <code>database/database.py</code>, <code>database/db_create_secret_key.py</code>, <code>database/db_init.py</code>, <code>database/employees_data.json</code>, <code>database/events_data_contact_id.json</code>, <code>database/events_data.json</code>, <code>database/login.py</code>, <code>database/logout.py</code>, <code>database/register.py</code>, <code>Fernet_cryptokey_gen.py</code>, <code>__init__.py</code>, <code>reset_password_user.py</code>, <code>token_storage.py</code></td>
+</tr>
+<tr>
+<td><code>views/</code></td>
+<td><code>client_view.py</code>, <code>contract_view.py</code>, <code>employee_view.py</code>, <code>event_view.py</code>, <code>__init__.py</code>, <code>login_view.py</code>, <code>logout_view.py</code>, <code>menu.py</code>, <code>report_view.py</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="références-">
+  Références :
+  <a class="heading-link" href="#r%c3%a9f%c3%a9rences-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<ul>
+<li><a href="https://openclassrooms.com/fr/paths/68-developpeur-dapplication-python"  class="external-link" target="_blank" rel="noopener">OpenClassrooms</a></li>
+<li><a href="https://www.postgresql.org/docs/current/app-psql.html"  class="external-link" target="_blank" rel="noopener">PSQL</a></li>
+<li><a href="https://www.pgadmin.org/docs/pgadmin4/latest/index.html"  class="external-link" target="_blank" rel="noopener">PgAdmin</a></li>
+<li><a href="https://github.com/microsoft/vscode-postgresql"  class="external-link" target="_blank" rel="noopener">VScode-postgresql</a></li>
+<li><a href="https://rich.readthedocs.io/en/latest/"  class="external-link" target="_blank" rel="noopener">Rich</a></li>
+<li><a href="https://docs.sqlalchemy.org/en/14/"  class="external-link" target="_blank" rel="noopener">SQLAlchemy</a></li>
+<li><a href="https://pypi.org/project/python-dotenv/"  class="external-link" target="_blank" rel="noopener">Python-dotenv</a></li>
+<li><a href="https://pyjwt.readthedocs.io/en/stable/"  class="external-link" target="_blank" rel="noopener">PyJWT</a></li>
+<li><a href="https://docs.pytest.org/en/6.2.x/"  class="external-link" target="_blank" rel="noopener">Pytest</a></li>
+<li><a href="https://docs.sentry.io/platforms/python/"  class="external-link" target="_blank" rel="noopener">Sentry</a></li>
+<li><a href="https://faker.readthedocs.io/en/master/"  class="external-link" target="_blank" rel="noopener">Faker</a></li>
+<li><a href="https://factoryboy.readthedocs.io/en/stable/"  class="external-link" target="_blank" rel="noopener">FactoryBoy</a></li>
+<li><a href="https://docs.python.org/3/library/datetime.html"  class="external-link" target="_blank" rel="noopener">DateTime</a></li>
+<li><a href="https://pypi.org/project/bcrypt/"  class="external-link" target="_blank" rel="noopener">Bcrypt</a></li>
+<li><a href="https://cryptography.io/en/latest/"  class="external-link" target="_blank" rel="noopener">Cryptography</a></li>
+<li><a href="https://doc.fedora-fr.org/wiki/Installation_et_configuration_de_PostgreSQL"  class="external-link" target="_blank" rel="noopener">Fedora - Installation et configuration PostgreSQL Server</a></li>
+</ul>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2001 -
+    
+    2023
+     Mickaël Salmon 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

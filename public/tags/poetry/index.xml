@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>poetry on Mickaël Salmon</title>
+    <link>https://mickael-salmon.github.io/tags/poetry/</link>
+    <description>Recent content in poetry on Mickaël Salmon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/tags/poetry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
+      <link>https://mickael-salmon.github.io/posts/poetry/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/poetry/</guid>
+      <description>Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry, un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
+Installation 💻 Link to heading macOS &amp;amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install.</description>
+    </item>
+    
+  </channel>
+</rss>
