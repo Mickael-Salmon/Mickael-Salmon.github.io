@@ -5,7 +5,7 @@ tags: ["python", "project management", "linux", "microsoft", "développement", "
 draft: false
 ---
 
-**Mickaël 🚀 - IT Manager & Technologie Enthusiaste**
+**Mickaël 🚀 - IT Manager**
 
 Bonjour! 👋
 
