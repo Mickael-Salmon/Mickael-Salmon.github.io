@@ -1,32 +1,35 @@
 ﻿---
-title: "A Propos"
+title: "Moi, en quelques mots simples"
 date: 2023-12-01
 tags: ["python", "project management", "linux", "microsoft", "développement", "sécurité", "cybersécurité", "blockchain", "cryptomonnaies", "marketing digital", "entreprenariat", "littérature"]
 draft: false
 ---
 
-**Mickaël 🚀 - IT Manager**
+**Mickaël - en quelques mots**
 
-Bonjour! 👋
+Salut ! 👋 Moi, c'est Mickaël.
 
-Je suis Mickaël, un passionné de technologie basé en Suisse romande.
+Basé en Suisse romande, je suis quelqu'un qui se passionne pour l'univers de la technologie, toujours curieux d'apprendre et d'explorer de nouveaux horizons.
 
-Avec une expertise étendue en infrastructure système et réseaux, sécurité informatique 🔒, un intérêt grandissant pour le développement logiciel 🖥️ et une volonté de conserver une approche KISS dans le  management de projets, j'apporte une vision holistique et innovante à chaque défi.
+Mon parcours m'a amené à toucher à plusieurs domaines, comme l'administration système, le réseau, le  développement logiciel, la sécurité informatique, la gestion de projet, l'architecture de SI ...  mais aussi la littérature, le marketing digital, la gestion de projets... C'est dans la découverte quotidienne et l'apprentissage continu que je trouve mon élan. 🌟
 
-Ma passion pour la technologie m'a conduit à me spécialiser dans des domaines aussi divers que le hacking éthique et le pentesting, le développement en Python, Linux et l'open source mais aussi les environnements Microsoft.
+J'ai un faible pour le hacking éthique, le développement Python, et tout ce qui touche à Linux et à l'open source. La blockchain et les cryptomonnaies sont aussi des sujets qui me fascinent.
 
-Je m'épanouis dans le travail autonome, démontrant une capacité exceptionnelle à mener des projets de bout en bout avec une forte autonomie 🌟. Cependant, je reconnais et valorise profondément les expériences acquises à travers le partage et les échanges avec les autres. Le respect et l'appréciation pour le travail en équipe sont au cœur de mon approche professionnelle.
+Je m'efforce de garder l'esprit ouvert, d'embrasser les nouveautés et d'apprendre de chaque expérience.Ma ligne directrice est de toujours faire de mon mieux, et de m'assurer que mes actions soient en accord avec mes valeurs. 🌱
 
-Je suis constamment à la recherche de nouvelles connaissances, notamment dans les domaines de la blockchain et des cryptomonnaies 🪙 et du marketing digital.
+Le KISS (Keep It Simple, Stupid) est une philosophie que j'essaie d'appliquer au quotidien. Je crois que la simplicité est la clé de l'efficacité et de la réussite. 🗝️
 
-Et quand je peux, je n'oublie pas ma fidèle amie la littérature avec qui je passe toujours de merveilleux moments. 📚
+Il n'y a pas de meilleure technologie, de meilleur langage ou de meilleur outil. Il y a simplement ce qui est le plus adapté à la situation. 🛠️ C'est la raison pour laquelle l'écoute et la compréhension sont des compétences essentielles pour moi.
 
-Je m'épanouis dans le partage de mes connaissances et expériences, notamment en sécurité informatique, développement personnel, entreprenariat, et bien plus. Ma soif d'apprendre et mon désir de résoudre des problèmes complexes m'ont toujours guidé dans ma carrière. 🌟
+J'ai eu la chance de pouvoir exercer mon métier et ma passion dans différents pays et les rencontres que j'ai pu y faire m'ont aidé à progresser sur ma voie.
 
-Cet espace est un endroit que je veux garder humble pour partager quelques uns de mes projets et montrer certaines de mes compétences.
+Le travail en équipe est donc tout naturellement une source précieuse d'apprentissage et d'enrichissement. J'apprécie l'autonomie, mais je sais aussi que les meilleures idées et solutions naissent souvent de la collaboration et du partage. 🤝
 
-Mon objectif ? Continuer à apprendre, grandir, et contribuer positivement à l'environnement qui m'entoure. Si vous cherchez quelqu'un de dédié, innovant et prêt à relever de nouveaux défis, discutons-en ! 🌐
+J'ai souhaité créer un espace humble pour partager quelques projets, scripts, idées et bonnes lectures.
 
+Si vous cherchez quelqu'un de passionné, curieux et désireux d'apporter sa contribution à des projets stimulants, je serais ravi d'échanger avec vous !
 ___
 
-📩 _Contactez-moi pour explorer comment nous pouvons collaborer et dans quelle mesure je peux contribuer à vos projets !_
+📩 _N'hésitez pas à me contacter pour discuter de comment nous pourrions collaborer._
+
+___
