@@ -1,5 +1,5 @@
 ---
-title: "Développez un programme logiciel en Python - Gestion de tournois d'échecs"
+title: "Utilisez les bases de Python pour l'analyse de marché - Web Scraping"
 date: 2022-12-01
 tags: ["python", "script", "web scraping", "Git", "GitHub", "request", "BeautifulSoup", "Pandas", "csv", "html"]
 draft: false
