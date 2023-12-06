@@ -18,7 +18,7 @@ draft: false
 ![Epic Events](https://user.oc-static.com/upload/2023/07/26/16903799358611_P12-02.png)
 
 
-# Contexte du projet
+# Contexte
 
 Epic Events est une entreprise qui organise des événements (fêtes,
 réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship
