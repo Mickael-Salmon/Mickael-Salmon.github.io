@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Script d&#39;Analyse Système et Réseau · Mickaël Salmon
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mickaël Salmon">
+<meta name="description" content="🌟 Script d&rsquo;Analyse Système et Réseau 🌟 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Ce script Python utilise des bibliothèques telles que psutil, requests, subprocess, et rich pour fournir une vue d&rsquo;ensemble détaillée du système et du réseau.
+Fonctionnalités 🚀 Link to heading Vérification des Interfaces Réseau Permet de vérifier si une interface spécifique est sans fil 📶.
+Récupération de l&rsquo;Adresse IP WAN Obtient l&rsquo;adresse IP WAN externe du système 🌍.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Script d&#39;Analyse Système et Réseau"/>
+<meta name="twitter:description" content="🌟 Script d&rsquo;Analyse Système et Réseau 🌟 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Ce script Python utilise des bibliothèques telles que psutil, requests, subprocess, et rich pour fournir une vue d&rsquo;ensemble détaillée du système et du réseau.
+Fonctionnalités 🚀 Link to heading Vérification des Interfaces Réseau Permet de vérifier si une interface spécifique est sans fil 📶.
+Récupération de l&rsquo;Adresse IP WAN Obtient l&rsquo;adresse IP WAN externe du système 🌍."/>
+
+<meta property="og:title" content="Script d&#39;Analyse Système et Réseau" />
+<meta property="og:description" content="🌟 Script d&rsquo;Analyse Système et Réseau 🌟 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Ce script Python utilise des bibliothèques telles que psutil, requests, subprocess, et rich pour fournir une vue d&rsquo;ensemble détaillée du système et du réseau.
+Fonctionnalités 🚀 Link to heading Vérification des Interfaces Réseau Permet de vérifier si une interface spécifique est sans fil 📶.
+Récupération de l&rsquo;Adresse IP WAN Obtient l&rsquo;adresse IP WAN externe du système 🌍." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mickael-salmon.github.io/posts/sysinfo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-01T00:00:00+00:00" />
+
+
+
+
+<link rel="canonical" href="https://mickael-salmon.github.io/posts/sysinfo/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css" integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66&#43;O2HK0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Mickaël Salmon
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/A%20propos/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projets</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://mickael-salmon.github.io/posts/sysinfo/">
+              Script d&#39;Analyse Système et Réseau
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-04-01T00:00:00Z">
+                April 1, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              10-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/python/">python</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/rich/">rich</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/psutil/">psutil</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/requests/">requests</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/subprocess/">subprocess</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/linux/">linux</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-script-danalyse-système-et-réseau-">
+  🌟 Script d&rsquo;Analyse Système et Réseau 🌟
+  <a class="heading-link" href="#-script-danalyse-syst%c3%a8me-et-r%c3%a9seau-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="vous-trouverez-ici-le-projet-complet--github-repositoryhttpsgithubcommickael-salmonmytoolboxblobmainsys_infopy">
+  Vous trouverez ici le Projet complet : <a href="https://github.com/Mickael-Salmon/MyToolBox/blob/main/sys_info.py"  class="external-link" target="_blank" rel="noopener">GitHub Repository</a>
+  <a class="heading-link" href="#vous-trouverez-ici-le-projet-complet--github-repositoryhttpsgithubcommickael-salmonmytoolboxblobmainsys_infopy">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ce script Python utilise des bibliothèques telles que <code>psutil</code>, <code>requests</code>, <code>subprocess</code>, et <code>rich</code> pour fournir une vue d&rsquo;ensemble détaillée du système et du réseau.</p>
+<h2 id="fonctionnalités-">
+  Fonctionnalités 🚀
+  <a class="heading-link" href="#fonctionnalit%c3%a9s-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li>
+<p><strong>Vérification des Interfaces Réseau</strong>
+Permet de vérifier si une interface spécifique est sans fil 📶.</p>
+</li>
+<li>
+<p><strong>Récupération de l&rsquo;Adresse IP WAN</strong>
+Obtient l&rsquo;adresse IP WAN externe du système 🌍.</p>
+</li>
+<li>
+<p><strong>Informations du Système d&rsquo;Exploitation</strong>
+Affiche les détails de la distribution OS actuelle 💻.</p>
+</li>
+<li>
+<p><strong>Vérification de Docker</strong>
+Contrôle si Docker est installé et liste les conteneurs en cours d&rsquo;exécution 🐳.</p>
+</li>
+<li>
+<p><strong>Statistiques du Système</strong>
+Présente des informations telles que l&rsquo;utilisation du CPU, de la mémoire et du disque 💾.</p>
+</li>
+<li>
+<p><strong>Liste des Utilisateurs du Système</strong>
+Énumère les utilisateurs enregistrés sur le système 👥.</p>
+</li>
+<li>
+<p><strong>Utilisateurs Connectés Actuellement</strong>
+Détecte les utilisateurs actuellement connectés 👤.</p>
+</li>
+<li>
+<p><strong>Bande Passante Réseau</strong>
+Affiche la bande passante entrante et sortante actuelle 📊.</p>
+</li>
+<li>
+<p><strong>Vérification des Paquets Snap et Flatpak</strong>
+Examine les installations Snap et Flatpak 📦.</p>
+</li>
+<li>
+<p><strong>Informations Réseau Complètes</strong>
+Présente des informations détaillées sur le réseau, y compris les adresses IP LAN et WAN 🌐.</p>
+</li>
+<li>
+<p><strong>Vérification de la Sécurité</strong>
+Évalue l&rsquo;état du firewall et du service SSH 🔒.</p>
+</li>
+</ol>
+<h2 id="menu-principal-">
+  Menu Principal 📋
+  <a class="heading-link" href="#menu-principal-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Le script offre un menu interactif qui permet de sélectionner et d&rsquo;exécuter les différentes fonctions.</p>
+<ul>
+<li>Chaque option du menu est accompagnée d&rsquo;un émoticône pour une meilleure lisibilité.</li>
+<li>Le script fournit des retours visuels riches grâce à la bibliothèque <code>rich</code>.</li>
+</ul>
+<h2 id="installation">
+  Installation
+  <a class="heading-link" href="#installation">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li>
+<p>Clonez le dépôt GitHub :</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/Mickael-Salmon/MyToolBox.git
+</span></span></code></pre></div></li>
+<li>
+<p>Installez les dépendances :</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install -r requirements.txt
+</span></span></code></pre></div></li>
+<li>
+<p>Exécutez le script Python :</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python sys_info.py
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="utilisation-">
+  Utilisation 🛠️
+  <a class="heading-link" href="#utilisation-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Pour exécuter le script :</p>
+<ol>
+<li>Lancez le script dans un terminal.</li>
+<li>Choisissez une option dans le menu principal.</li>
+<li>Suivez les instructions à l&rsquo;écran pour chaque fonction.</li>
+</ol>
+<h2 id="dépendances-">
+  Dépendances 📚
+  <a class="heading-link" href="#d%c3%a9pendances-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><code>psutil</code></li>
+<li><code>requests</code></li>
+<li><code>colorama</code></li>
+<li><code>rich</code></li>
+</ul>
+<h2 id="détail-des-fonctions-">
+  Détail des Fonctions 📋
+  <a class="heading-link" href="#d%c3%a9tail-des-fonctions-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">os</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">subprocess</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">socket</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">psutil</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">ipaddress</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">requests</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">re</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">time</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">colorama</span> <span style="color:#ff7b72">import</span> Fore, init
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">rich.console</span> <span style="color:#ff7b72">import</span> Console
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">rich.markup</span> <span style="color:#ff7b72">import</span> escape
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">rich.table</span> <span style="color:#ff7b72">import</span> Table
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">rich.prompt</span> <span style="color:#ff7b72">import</span> Prompt
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">rich</span> <span style="color:#ff7b72">import</span> box
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console <span style="color:#ff7b72;font-weight:bold">=</span> Console()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>init(autoreset<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">check_if_wireless</span>(interface):
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Check if the given network interface is a wireless interface.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        interface (str): The name of the network interface.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        bool: True if the interface is wireless, False otherwise.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    wireless_exists <span style="color:#ff7b72;font-weight:bold">=</span> os<span style="color:#ff7b72;font-weight:bold">.</span>path<span style="color:#ff7b72;font-weight:bold">.</span>exists(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#39;/sys/class/net/</span><span style="color:#a5d6ff">{</span>interface<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">/wireless&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> wireless_exists:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;L&#39;interface [bold green]</span><span style="color:#a5d6ff">{</span>escape(interface)<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">[/bold green] est sans fil 📶&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;L&#39;interface [bold red]</span><span style="color:#a5d6ff">{</span>escape(interface)<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">[/bold red] n&#39;est pas sans fil ❌&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">return</span> wireless_exists
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">get_wan_ip</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Retrieves the WAN IP address.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        str: The WAN IP address if available, otherwise &#34;Indisponible&#34;.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        response <span style="color:#ff7b72;font-weight:bold">=</span> requests<span style="color:#ff7b72;font-weight:bold">.</span>get(<span style="color:#a5d6ff">&#39;https://httpbin.org/ip&#39;</span>)
+</span></span><span style="display:flex;"><span>        wan_ip <span style="color:#ff7b72;font-weight:bold">=</span> response<span style="color:#ff7b72;font-weight:bold">.</span>json()[<span style="color:#a5d6ff">&#39;origin&#39;</span>]
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;[bold green]Adresse IP WAN :[/bold green] </span><span style="color:#a5d6ff">{</span>escape(wan_ip)<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff"> 🌍&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> wan_ip
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> <span style="color:#f0883e;font-weight:bold">Exception</span> <span style="color:#ff7b72">as</span> e:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;[bold red]Impossible de récupérer l&#39;adresse IP WAN :[/bold red] Indisponible ❌&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;red&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> <span style="color:#a5d6ff">&#34;Indisponible&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">get_os_info</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Retrieves the operating system information from the &#39;/etc/os-release&#39; file.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        str: The formatted operating system information in the format &#39;name (version)&#39;.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">            If the &#39;/etc/os-release&#39; file is not found, returns &#39;Informations sur la distribution indisponibles&#39;.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">with</span> open(<span style="color:#a5d6ff">&#39;/etc/os-release&#39;</span>) <span style="color:#ff7b72">as</span> f:
+</span></span><span style="display:flex;"><span>            lines <span style="color:#ff7b72;font-weight:bold">=</span> f<span style="color:#ff7b72;font-weight:bold">.</span>readlines()
+</span></span><span style="display:flex;"><span>        os_info <span style="color:#ff7b72;font-weight:bold">=</span> {line<span style="color:#ff7b72;font-weight:bold">.</span>split(<span style="color:#a5d6ff">&#39;=&#39;</span>)[<span style="color:#a5d6ff">0</span>]: line<span style="color:#ff7b72;font-weight:bold">.</span>split(<span style="color:#a5d6ff">&#39;=&#39;</span>)[<span style="color:#a5d6ff">1</span>]<span style="color:#ff7b72;font-weight:bold">.</span>strip()<span style="color:#ff7b72;font-weight:bold">.</span>strip(<span style="color:#a5d6ff">&#39;&#34;&#39;</span>) <span style="color:#ff7b72">for</span> line <span style="color:#ff7b72;font-weight:bold">in</span> lines <span style="color:#ff7b72">if</span> <span style="color:#a5d6ff">&#39;=&#39;</span> <span style="color:#ff7b72;font-weight:bold">in</span> line}
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff7b72;font-weight:bold">=</span> os_info<span style="color:#ff7b72;font-weight:bold">.</span>get(<span style="color:#a5d6ff">&#39;NAME&#39;</span>, <span style="color:#a5d6ff">&#39;Indisponible&#39;</span>)
+</span></span><span style="display:flex;"><span>        version <span style="color:#ff7b72;font-weight:bold">=</span> os_info<span style="color:#ff7b72;font-weight:bold">.</span>get(<span style="color:#a5d6ff">&#39;VERSION_ID&#39;</span>, <span style="color:#a5d6ff">&#39;Indisponible&#39;</span>)
+</span></span><span style="display:flex;"><span>        formatted_os_info <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>name<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff"> (</span><span style="color:#a5d6ff">{</span>version<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">)&#34;</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;[bold green]Système d&#39;exploitation:[/bold green] </span><span style="color:#a5d6ff">{</span>escape(formatted_os_info)<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff"> 💻&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> formatted_os_info
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> <span style="color:#f0883e;font-weight:bold">FileNotFoundError</span>:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;[bold red]Informations sur la distribution indisponibles[/bold red] ❌&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;red&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> <span style="color:#a5d6ff">&#34;Informations sur la distribution indisponibles&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">check_docker</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Check if Docker is installed and running.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        str: A message indicating the status of Docker and the running containers.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        subprocess<span style="color:#ff7b72;font-weight:bold">.</span>run([<span style="color:#a5d6ff">&#39;docker&#39;</span>, <span style="color:#a5d6ff">&#39;--version&#39;</span>], check<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, stdout<span style="color:#ff7b72;font-weight:bold">=</span>subprocess<span style="color:#ff7b72;font-weight:bold">.</span>PIPE, stderr<span style="color:#ff7b72;font-weight:bold">=</span>subprocess<span style="color:#ff7b72;font-weight:bold">.</span>PIPE)
+</span></span><span style="display:flex;"><span>        output <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output([<span style="color:#a5d6ff">&#39;docker&#39;</span>, <span style="color:#a5d6ff">&#39;ps&#39;</span>], text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> output:
+</span></span><span style="display:flex;"><span>            table <span style="color:#ff7b72;font-weight:bold">=</span> Table(title<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;Conteneurs Docker en cours d&#39;exécution&#34;</span>, box<span style="color:#ff7b72;font-weight:bold">=</span>box<span style="color:#ff7b72;font-weight:bold">.</span>ROUNDED)
+</span></span><span style="display:flex;"><span>            headers <span style="color:#ff7b72;font-weight:bold">=</span> output<span style="color:#ff7b72;font-weight:bold">.</span>splitlines()[<span style="color:#a5d6ff">0</span>]<span style="color:#ff7b72;font-weight:bold">.</span>split()
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">for</span> header <span style="color:#ff7b72;font-weight:bold">in</span> headers:
+</span></span><span style="display:flex;"><span>                table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(header, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;magenta&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">for</span> row <span style="color:#ff7b72;font-weight:bold">in</span> output<span style="color:#ff7b72;font-weight:bold">.</span>splitlines()[<span style="color:#a5d6ff">1</span>:]:
+</span></span><span style="display:flex;"><span>                table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(<span style="color:#ff7b72;font-weight:bold">*</span>row<span style="color:#ff7b72;font-weight:bold">.</span>split(maxsplit<span style="color:#ff7b72;font-weight:bold">=</span>len(headers)<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>))
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(table)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> <span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;Docker est installé. Conteneurs en cours d&#39;exécution :</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">{</span>output<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Docker est installé, mais aucun conteneur n&#39;est en cours d&#39;exécution.&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;yellow&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">return</span> <span style="color:#a5d6ff">&#34;Docker est installé, mais aucun conteneur n&#39;est en cours d&#39;exécution.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> (subprocess<span style="color:#ff7b72;font-weight:bold">.</span>CalledProcessError, <span style="color:#f0883e;font-weight:bold">FileNotFoundError</span>):
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Docker n&#39;est pas installé ou non accessible.&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;red&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">return</span> <span style="color:#a5d6ff">&#34;Docker n&#39;est pas installé ou non accessible.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">print_system_info</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Prints system information including CPU count, memory usage, and disk usage.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Raises:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        Exception: If there is an error retrieving system information.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    table <span style="color:#ff7b72;font-weight:bold">=</span> Table(title<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;Informations sur le système&#34;</span>, box<span style="color:#ff7b72;font-weight:bold">=</span>box<span style="color:#ff7b72;font-weight:bold">.</span>ROUNDED)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(<span style="color:#a5d6ff">&#34;Description&#34;</span>, justify<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;right&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;cyan&#34;</span>, no_wrap<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(<span style="color:#a5d6ff">&#34;Valeur&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;magenta&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        cpu_count <span style="color:#ff7b72;font-weight:bold">=</span> psutil<span style="color:#ff7b72;font-weight:bold">.</span>cpu_count()
+</span></span><span style="display:flex;"><span>        memory_info <span style="color:#ff7b72;font-weight:bold">=</span> psutil<span style="color:#ff7b72;font-weight:bold">.</span>virtual_memory()
+</span></span><span style="display:flex;"><span>        disk_usage <span style="color:#ff7b72;font-weight:bold">=</span> psutil<span style="color:#ff7b72;font-weight:bold">.</span>disk_usage(<span style="color:#a5d6ff">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(<span style="color:#a5d6ff">&#34;Nombre de CPU&#34;</span>, str(cpu_count) <span style="color:#ff7b72;font-weight:bold">+</span> <span style="color:#a5d6ff">&#34; 💻&#34;</span>)
+</span></span><span style="display:flex;"><span>        table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(<span style="color:#a5d6ff">&#34;Utilisation de la mémoire&#34;</span>, <span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>memory_info<span style="color:#ff7b72;font-weight:bold">.</span>percent<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">% 🧠&#34;</span>)
+</span></span><span style="display:flex;"><span>        table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(<span style="color:#a5d6ff">&#34;Utilisation du disque&#34;</span>, <span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>disk_usage<span style="color:#ff7b72;font-weight:bold">.</span>percent<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">% 💾&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> <span style="color:#f0883e;font-weight:bold">Exception</span> <span style="color:#ff7b72">as</span> e:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;[bold red]Erreur lors de la récupération des informations système:[/bold red] </span><span style="color:#a5d6ff">{</span>e<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;red&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(table)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">list_users</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Retrieves and displays a list of system users.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    This function reads the &#39;/etc/passwd&#39; file and extracts the usernames.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    It then prints the usernames in a formatted table.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        None
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        None
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">with</span> open(<span style="color:#a5d6ff">&#39;/etc/passwd&#39;</span>, <span style="color:#a5d6ff">&#39;r&#39;</span>) <span style="color:#ff7b72">as</span> f:
+</span></span><span style="display:flex;"><span>        lines <span style="color:#ff7b72;font-weight:bold">=</span> f<span style="color:#ff7b72;font-weight:bold">.</span>readlines()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    table <span style="color:#ff7b72;font-weight:bold">=</span> Table(title<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;Utilisateurs du système&#34;</span>, box<span style="color:#ff7b72;font-weight:bold">=</span>box<span style="color:#ff7b72;font-weight:bold">.</span>ROUNDED)
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(<span style="color:#a5d6ff">&#34;Nom d&#39;utilisateur&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;cyan&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> line <span style="color:#ff7b72;font-weight:bold">in</span> lines:
+</span></span><span style="display:flex;"><span>        username <span style="color:#ff7b72;font-weight:bold">=</span> line<span style="color:#ff7b72;font-weight:bold">.</span>split(<span style="color:#a5d6ff">&#39;:&#39;</span>)[<span style="color:#a5d6ff">0</span>]
+</span></span><span style="display:flex;"><span>        table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(username)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(table)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">subprocess</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">rich.console</span> <span style="color:#ff7b72">import</span> Console
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">rich.table</span> <span style="color:#ff7b72">import</span> Table
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">rich</span> <span style="color:#ff7b72">import</span> box
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">list_logged_in_users</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Retrieves and displays the list of currently logged in users.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    This function uses the &#39;who&#39; command to get the list of logged in users.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    It then displays the list in a formatted table using the &#39;rich&#39; library.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Raises:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        subprocess.CalledProcessError: If there is an error while executing the &#39;who&#39; command.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        output <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output(<span style="color:#a5d6ff">&#39;who&#39;</span>, shell<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()<span style="color:#ff7b72;font-weight:bold">.</span>split(<span style="color:#a5d6ff">&#39;</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">&#39;</span>)
+</span></span><span style="display:flex;"><span>        logged_in_users <span style="color:#ff7b72;font-weight:bold">=</span> list(set([line<span style="color:#ff7b72;font-weight:bold">.</span>split()[<span style="color:#a5d6ff">0</span>] <span style="color:#ff7b72">for</span> line <span style="color:#ff7b72;font-weight:bold">in</span> output]))  <span style="color:#8b949e;font-style:italic"># Remove duplicates</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> logged_in_users:
+</span></span><span style="display:flex;"><span>            table <span style="color:#ff7b72;font-weight:bold">=</span> Table(title<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;Utilisateurs actuellement connectés&#34;</span>, box<span style="color:#ff7b72;font-weight:bold">=</span>box<span style="color:#ff7b72;font-weight:bold">.</span>ROUNDED)
+</span></span><span style="display:flex;"><span>            table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(<span style="color:#a5d6ff">&#34;Nom d&#39;utilisateur&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;cyan&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">for</span> user <span style="color:#ff7b72;font-weight:bold">in</span> logged_in_users:
+</span></span><span style="display:flex;"><span>                table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(user)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(table)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Aucun utilisateur connecté.&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;yellow&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>CalledProcessError:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Impossible de récupérer la liste des utilisateurs connectés.&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;red&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">get_bandwidth</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Get the current network bandwidth in Mbps.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        None
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    net1_out <span style="color:#ff7b72;font-weight:bold">=</span> psutil<span style="color:#ff7b72;font-weight:bold">.</span>net_io_counters()<span style="color:#ff7b72;font-weight:bold">.</span>bytes_sent
+</span></span><span style="display:flex;"><span>    net1_in <span style="color:#ff7b72;font-weight:bold">=</span> psutil<span style="color:#ff7b72;font-weight:bold">.</span>net_io_counters()<span style="color:#ff7b72;font-weight:bold">.</span>bytes_recv
+</span></span><span style="display:flex;"><span>    time<span style="color:#ff7b72;font-weight:bold">.</span>sleep(<span style="color:#a5d6ff">1</span>)
+</span></span><span style="display:flex;"><span>    net2_out <span style="color:#ff7b72;font-weight:bold">=</span> psutil<span style="color:#ff7b72;font-weight:bold">.</span>net_io_counters()<span style="color:#ff7b72;font-weight:bold">.</span>bytes_sent
+</span></span><span style="display:flex;"><span>    net2_in <span style="color:#ff7b72;font-weight:bold">=</span> psutil<span style="color:#ff7b72;font-weight:bold">.</span>net_io_counters()<span style="color:#ff7b72;font-weight:bold">.</span>bytes_recv
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    current_in <span style="color:#ff7b72;font-weight:bold">=</span> net2_in <span style="color:#ff7b72;font-weight:bold">-</span> net1_in <span style="color:#ff7b72">if</span> net1_in <span style="color:#ff7b72;font-weight:bold">&lt;=</span> net2_in <span style="color:#ff7b72">else</span> <span style="color:#a5d6ff">0</span>
+</span></span><span style="display:flex;"><span>    current_out <span style="color:#ff7b72;font-weight:bold">=</span> net2_out <span style="color:#ff7b72;font-weight:bold">-</span> net1_out <span style="color:#ff7b72">if</span> net1_out <span style="color:#ff7b72;font-weight:bold">&lt;=</span> net2_out <span style="color:#ff7b72">else</span> <span style="color:#a5d6ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Conversion en Mbps (1 Byte = 8 bits, 1 Mbps = 1e6 bits)</span>
+</span></span><span style="display:flex;"><span>    current_in_Mbps <span style="color:#ff7b72;font-weight:bold">=</span> (current_in <span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#a5d6ff">8</span>) <span style="color:#ff7b72;font-weight:bold">/</span> <span style="color:#a5d6ff">1e6</span>
+</span></span><span style="display:flex;"><span>    current_out_Mbps <span style="color:#ff7b72;font-weight:bold">=</span> (current_out <span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#a5d6ff">8</span>) <span style="color:#ff7b72;font-weight:bold">/</span> <span style="color:#a5d6ff">1e6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    table <span style="color:#ff7b72;font-weight:bold">=</span> Table(title<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;Bande passante actuelle&#34;</span>, box<span style="color:#ff7b72;font-weight:bold">=</span>box<span style="color:#ff7b72;font-weight:bold">.</span>ROUNDED)
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(<span style="color:#a5d6ff">&#34;Type&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;cyan&#34;</span>)
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(<span style="color:#a5d6ff">&#34;Valeur (Mbps)&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;magenta&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(<span style="color:#a5d6ff">&#34;Trafic entrant&#34;</span>, <span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>current_in_Mbps<span style="color:#a5d6ff">:</span><span style="color:#a5d6ff">.2f</span><span style="color:#a5d6ff">}</span><span style="color:#a5d6ff"> Mbps ⬇️&#34;</span>)
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(<span style="color:#a5d6ff">&#34;Trafic sortant&#34;</span>, <span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>current_out_Mbps<span style="color:#a5d6ff">:</span><span style="color:#a5d6ff">.2f</span><span style="color:#a5d6ff">}</span><span style="color:#a5d6ff"> Mbps ⬆️&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(table)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">check_snap_and_flatpak</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Check the availability and versions of Snap and Flatpak packages installed on the system.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        dict: A dictionary containing information about Snap and Flatpak packages.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">            The &#39;snap&#39; key contains either a Table object with Snap package information or the string &#39;Non installé&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">            The &#39;flatpak&#39; key contains either a Table object with Flatpak application information or the string &#39;Non installé&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    info <span style="color:#ff7b72;font-weight:bold">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Pour Snap</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        subprocess<span style="color:#ff7b72;font-weight:bold">.</span>run([<span style="color:#a5d6ff">&#39;snap&#39;</span>, <span style="color:#a5d6ff">&#39;--version&#39;</span>], check<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, stdout<span style="color:#ff7b72;font-weight:bold">=</span>subprocess<span style="color:#ff7b72;font-weight:bold">.</span>PIPE, stderr<span style="color:#ff7b72;font-weight:bold">=</span>subprocess<span style="color:#ff7b72;font-weight:bold">.</span>PIPE)
+</span></span><span style="display:flex;"><span>        snap_output <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output(<span style="color:#a5d6ff">&#39;snap list&#39;</span>, shell<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()<span style="color:#ff7b72;font-weight:bold">.</span>split(<span style="color:#a5d6ff">&#39;</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">&#39;</span>)
+</span></span><span style="display:flex;"><span>        snap_headers <span style="color:#ff7b72;font-weight:bold">=</span> snap_output[<span style="color:#a5d6ff">0</span>]<span style="color:#ff7b72;font-weight:bold">.</span>split()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        snap_table <span style="color:#ff7b72;font-weight:bold">=</span> Table(title<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;Snap Packages&#34;</span>, box<span style="color:#ff7b72;font-weight:bold">=</span>box<span style="color:#ff7b72;font-weight:bold">.</span>ROUNDED)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> header <span style="color:#ff7b72;font-weight:bold">in</span> snap_headers:
+</span></span><span style="display:flex;"><span>            snap_table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(header, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;cyan&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> row <span style="color:#ff7b72;font-weight:bold">in</span> snap_output[<span style="color:#a5d6ff">1</span>:]:
+</span></span><span style="display:flex;"><span>            snap_table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(<span style="color:#ff7b72;font-weight:bold">*</span>row<span style="color:#ff7b72;font-weight:bold">.</span>split(maxsplit<span style="color:#ff7b72;font-weight:bold">=</span>len(snap_headers)<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        info[<span style="color:#a5d6ff">&#39;snap&#39;</span>] <span style="color:#ff7b72;font-weight:bold">=</span> snap_table
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> (subprocess<span style="color:#ff7b72;font-weight:bold">.</span>CalledProcessError, <span style="color:#f0883e;font-weight:bold">FileNotFoundError</span>):
+</span></span><span style="display:flex;"><span>        info[<span style="color:#a5d6ff">&#39;snap&#39;</span>] <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">&#39;Non installé&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Pour Flatpak</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        subprocess<span style="color:#ff7b72;font-weight:bold">.</span>run([<span style="color:#a5d6ff">&#39;flatpak&#39;</span>, <span style="color:#a5d6ff">&#39;--version&#39;</span>], check<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, stdout<span style="color:#ff7b72;font-weight:bold">=</span>subprocess<span style="color:#ff7b72;font-weight:bold">.</span>PIPE, stderr<span style="color:#ff7b72;font-weight:bold">=</span>subprocess<span style="color:#ff7b72;font-weight:bold">.</span>PIPE)
+</span></span><span style="display:flex;"><span>        flatpak_output <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output(<span style="color:#a5d6ff">&#39;flatpak list&#39;</span>, shell<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()<span style="color:#ff7b72;font-weight:bold">.</span>split(<span style="color:#a5d6ff">&#39;</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">&#39;</span>)
+</span></span><span style="display:flex;"><span>        flatpak_headers <span style="color:#ff7b72;font-weight:bold">=</span> [<span style="color:#a5d6ff">&#34;Application&#34;</span>, <span style="color:#a5d6ff">&#34;Branch&#34;</span>, <span style="color:#a5d6ff">&#34;Numéro de version&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        flatpak_table <span style="color:#ff7b72;font-weight:bold">=</span> Table(title<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;Flatpak Applications&#34;</span>, box<span style="color:#ff7b72;font-weight:bold">=</span>box<span style="color:#ff7b72;font-weight:bold">.</span>ROUNDED)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> header <span style="color:#ff7b72;font-weight:bold">in</span> flatpak_headers:
+</span></span><span style="display:flex;"><span>            flatpak_table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(header, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;magenta&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">for</span> row <span style="color:#ff7b72;font-weight:bold">in</span> flatpak_output:
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>                parts <span style="color:#ff7b72;font-weight:bold">=</span> row<span style="color:#ff7b72;font-weight:bold">.</span>split()
+</span></span><span style="display:flex;"><span>                app <span style="color:#ff7b72;font-weight:bold">=</span> parts[<span style="color:#a5d6ff">0</span>]
+</span></span><span style="display:flex;"><span>                branch <span style="color:#ff7b72;font-weight:bold">=</span> parts[<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">2</span>]
+</span></span><span style="display:flex;"><span>                version_number <span style="color:#ff7b72;font-weight:bold">=</span> parts[<span style="color:#ff7b72;font-weight:bold">-</span><span style="color:#a5d6ff">3</span>]
+</span></span><span style="display:flex;"><span>                flatpak_table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(app, branch, version_number)
+</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">except</span> (<span style="color:#f0883e;font-weight:bold">ValueError</span>, <span style="color:#f0883e;font-weight:bold">IndexError</span>):
+</span></span><span style="display:flex;"><span>                flatpak_table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(row, <span style="color:#a5d6ff">&#39;Inconnu&#39;</span>, <span style="color:#a5d6ff">&#39;Inconnu&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        info[<span style="color:#a5d6ff">&#39;flatpak&#39;</span>] <span style="color:#ff7b72;font-weight:bold">=</span> flatpak_table
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> (subprocess<span style="color:#ff7b72;font-weight:bold">.</span>CalledProcessError, <span style="color:#f0883e;font-weight:bold">FileNotFoundError</span>):
+</span></span><span style="display:flex;"><span>        info[<span style="color:#a5d6ff">&#39;flatpak&#39;</span>] <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">&#39;Non installé&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Affichage des tableaux</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> key, table <span style="color:#ff7b72;font-weight:bold">in</span> info<span style="color:#ff7b72;font-weight:bold">.</span>items():
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> isinstance(table, Table):
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(table)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>key<span style="color:#ff7b72;font-weight:bold">.</span>capitalize()<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff"> : </span><span style="color:#a5d6ff">{</span>table<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;yellow&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">run_and_print</span>(cmd, desc):
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Run a command and print the output.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        cmd (str): The command to be executed.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        desc (str): The description of the command.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">        None
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>desc<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">:&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold yellow&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        output <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output(cmd, shell<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(output, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold cyan&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>CalledProcessError:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Erreur lors de l&#39;exécution de la commande.&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold red&#34;</span>)
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;-&#34;</span> <span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#a5d6ff">40</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">get_network_info</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Retrieves and displays network and system information of the machine.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    This function prints the following information:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - Hostname of the machine
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - Kernel information
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - Distribution information
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - Default route
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - Routing table
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - DNS configuration
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - Active connections
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - LAN IPv4 addresses
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - LAN IPv6 addresses
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    - WAN IP address
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Hello Friend! Voici les informations réseau et système de cette machine:</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold green&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    run_and_print(<span style="color:#a5d6ff">&#39;hostname&#39;</span>, <span style="color:#a5d6ff">&#39;Nom de la machine&#39;</span>)
+</span></span><span style="display:flex;"><span>    run_and_print(<span style="color:#a5d6ff">&#39;uname -a&#39;</span>, <span style="color:#a5d6ff">&#39;Informations sur le noyau&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Informations sur la distribution:&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold yellow&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Ici, appelle ta fonction modifiée `get_os_info` avec `rich`</span>
+</span></span><span style="display:flex;"><span>    get_os_info()  <span style="color:#8b949e;font-style:italic"># Assure-toi que cette fonction utilise `rich` pour l&#39;affichage</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    run_and_print(<span style="color:#a5d6ff">&#39;ip route | grep default&#39;</span>, <span style="color:#a5d6ff">&#39;Route par défaut&#39;</span>)
+</span></span><span style="display:flex;"><span>    run_and_print(<span style="color:#a5d6ff">&#39;route -n&#39;</span>, <span style="color:#a5d6ff">&#39;Table de routage&#39;</span>)
+</span></span><span style="display:flex;"><span>    run_and_print(<span style="color:#a5d6ff">&#39;cat /etc/resolv.conf | grep nameserver&#39;</span>, <span style="color:#a5d6ff">&#39;DNS&#39;</span>)
+</span></span><span style="display:flex;"><span>    run_and_print(<span style="color:#a5d6ff">&#39;netstat -tuln&#39;</span>, <span style="color:#a5d6ff">&#39;Connexions actives&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Affichage des adresses IP</span>
+</span></span><span style="display:flex;"><span>    ips <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output(<span style="color:#a5d6ff">&#39;hostname -I&#39;</span>, shell<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()<span style="color:#ff7b72;font-weight:bold">.</span>split()
+</span></span><span style="display:flex;"><span>    lan_ipv4 <span style="color:#ff7b72;font-weight:bold">=</span> [ip <span style="color:#ff7b72">for</span> ip <span style="color:#ff7b72;font-weight:bold">in</span> ips <span style="color:#ff7b72">if</span> ipaddress<span style="color:#ff7b72;font-weight:bold">.</span>ip_address(ip)<span style="color:#ff7b72;font-weight:bold">.</span>is_private <span style="color:#ff7b72;font-weight:bold">and</span> <span style="color:#a5d6ff">&#39;:&#39;</span> <span style="color:#ff7b72;font-weight:bold">not</span> <span style="color:#ff7b72;font-weight:bold">in</span> ip]
+</span></span><span style="display:flex;"><span>    lan_ipv6 <span style="color:#ff7b72;font-weight:bold">=</span> [ip <span style="color:#ff7b72">for</span> ip <span style="color:#ff7b72;font-weight:bold">in</span> ips <span style="color:#ff7b72">if</span> ipaddress<span style="color:#ff7b72;font-weight:bold">.</span>ip_address(ip)<span style="color:#ff7b72;font-weight:bold">.</span>is_private <span style="color:#ff7b72;font-weight:bold">and</span> <span style="color:#a5d6ff">&#39;:&#39;</span> <span style="color:#ff7b72;font-weight:bold">in</span> ip]
+</span></span><span style="display:flex;"><span>    wan_ip <span style="color:#ff7b72;font-weight:bold">=</span> get_wan_ip()  <span style="color:#8b949e;font-style:italic"># Cette fonction doit également utiliser `rich`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Adresses IP:&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold yellow&#34;</span>)
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;LAN IPv4: </span><span style="color:#a5d6ff">{</span><span style="color:#a5d6ff">&#39;, &#39;</span><span style="color:#ff7b72;font-weight:bold">.</span>join(lan_ipv4)<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold cyan&#34;</span>)
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;LAN IPv6: </span><span style="color:#a5d6ff">{</span><span style="color:#a5d6ff">&#39;, &#39;</span><span style="color:#ff7b72;font-weight:bold">.</span>join(lan_ipv6)<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold cyan&#34;</span>)
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;WAN IP: </span><span style="color:#a5d6ff">{</span>wan_ip<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold cyan&#34;</span>)
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;-&#34;</span> <span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#a5d6ff">40</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">check_security</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Check the security status of the system.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    This function performs the following checks:
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    1. Checks the status of UFW (Uncomplicated Firewall).
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    2. Checks the status of firewalld.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    3. Checks the status of the SSH service.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    The results of each check are printed to the console.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">[bold blue]Vérification de la Sécurité[/bold blue]&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Vérification de l&#39;état de UFW (Uncomplicated Firewall)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        ufw_status <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output(<span style="color:#a5d6ff">&#34;sudo ufw status&#34;</span>, shell<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;État du Firewall (UFW): [bold green]</span><span style="color:#a5d6ff">{</span>ufw_status<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">[/bold green]&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>CalledProcessError:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Firewall (UFW) non installé ou erreur lors de la vérification.&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold red&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Vérification de l&#39;état de firewalld</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        firewalld_status <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output(<span style="color:#a5d6ff">&#34;sudo systemctl is-active firewalld&#34;</span>, shell<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> firewalld_status <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;active&#34;</span>:
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Firewall (firewalld): [bold green]Actif[/bold green]&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Firewall (firewalld): [bold red]Inactif ou non installé[/bold red]&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>CalledProcessError:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Erreur lors de la vérification de firewalld.&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold red&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Vérification de l&#39;état du service SSH</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">try</span>:
+</span></span><span style="display:flex;"><span>        ssh_status <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>check_output(<span style="color:#a5d6ff">&#34;sudo systemctl is-active ssh&#34;</span>, shell<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, text<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>)<span style="color:#ff7b72;font-weight:bold">.</span>strip()
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">if</span> ssh_status <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;active&#34;</span>:
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Service SSH: [bold green]Actif[/bold green]&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>            console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;Service SSH: [bold red]Inactif[/bold red]&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">except</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>CalledProcessError:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;SSH non installé ou erreur lors de la vérification.&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold red&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;-&#34;</span> <span style="color:#ff7b72;font-weight:bold">*</span> <span style="color:#a5d6ff">40</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">main_menu</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a5d6ff">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    Displays the main menu and handles user input to execute different options.
+</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    table <span style="color:#ff7b72;font-weight:bold">=</span> Table(title<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;🚀 Menu Principal 🚀&#34;</span>, box<span style="color:#ff7b72;font-weight:bold">=</span>box<span style="color:#ff7b72;font-weight:bold">.</span>ROUNDED, show_header<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#79c0ff">True</span>, header_style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold blue&#34;</span>)
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(<span style="color:#a5d6ff">&#34;Option&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;dim&#34;</span>, width<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">12</span>)
+</span></span><span style="display:flex;"><span>    table<span style="color:#ff7b72;font-weight:bold">.</span>add_column(<span style="color:#a5d6ff">&#34;Description&#34;</span>, justify<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;left&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    menu_items <span style="color:#ff7b72;font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;1&#34;</span>: <span style="color:#a5d6ff">&#34;📡 Vérifier si une interface est sans fil&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;2&#34;</span>: <span style="color:#a5d6ff">&#34;🌐 Obtenir l&#39;adresse IP WAN&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;3&#34;</span>: <span style="color:#a5d6ff">&#34;💻 Afficher les informations du système d&#39;exploitation&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;4&#34;</span>: <span style="color:#a5d6ff">&#34;🐳 Vérifier Docker&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;5&#34;</span>: <span style="color:#a5d6ff">&#34;🔍 Afficher les informations système&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;6&#34;</span>: <span style="color:#a5d6ff">&#34;👥 Lister les utilisateurs du système&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;7&#34;</span>: <span style="color:#a5d6ff">&#34;👤 Lister les utilisateurs connectés&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;8&#34;</span>: <span style="color:#a5d6ff">&#34;📊 Afficher la bande passante&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;9&#34;</span>: <span style="color:#a5d6ff">&#34;📦 Vérifier Snap et Flatpak&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;10&#34;</span>: <span style="color:#a5d6ff">&#34;🌐 Afficher les informations réseau&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;11&#34;</span>: <span style="color:#a5d6ff">&#34;🔒 Vérifier la sécurité (Firewall et SSH)&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;0&#34;</span>: <span style="color:#a5d6ff">&#34;🚪 Quitter&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> key, desc <span style="color:#ff7b72;font-weight:bold">in</span> menu_items<span style="color:#ff7b72;font-weight:bold">.</span>items():
+</span></span><span style="display:flex;"><span>        table<span style="color:#ff7b72;font-weight:bold">.</span>add_row(key, desc)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#ff7b72;font-weight:bold">.</span>print(table)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    choice <span style="color:#ff7b72;font-weight:bold">=</span> Prompt<span style="color:#ff7b72;font-weight:bold">.</span>ask(<span style="color:#a5d6ff">&#34;👉 Choisis une option&#34;</span>, default<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;0&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;1&#34;</span>:
+</span></span><span style="display:flex;"><span>        interface <span style="color:#ff7b72;font-weight:bold">=</span> Prompt<span style="color:#ff7b72;font-weight:bold">.</span>ask(<span style="color:#a5d6ff">&#34;💻 Entrez le nom de l&#39;interface&#34;</span>)
+</span></span><span style="display:flex;"><span>        check_if_wireless(interface)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;2&#34;</span>:
+</span></span><span style="display:flex;"><span>        get_wan_ip()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;3&#34;</span>:
+</span></span><span style="display:flex;"><span>        get_os_info()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;4&#34;</span>:
+</span></span><span style="display:flex;"><span>        check_docker()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;5&#34;</span>:
+</span></span><span style="display:flex;"><span>        print_system_info()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;6&#34;</span>:
+</span></span><span style="display:flex;"><span>        list_users()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;7&#34;</span>:
+</span></span><span style="display:flex;"><span>        list_logged_in_users()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;8&#34;</span>:
+</span></span><span style="display:flex;"><span>        get_bandwidth()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;9&#34;</span>:
+</span></span><span style="display:flex;"><span>        check_snap_and_flatpak()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;10&#34;</span>:
+</span></span><span style="display:flex;"><span>        get_network_info()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;11&#34;</span>:
+</span></span><span style="display:flex;"><span>        check_security()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;0&#34;</span>:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;👋 Au revoir !&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold green&#34;</span>)
+</span></span><span style="display:flex;"><span>        exit()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>        console<span style="color:#ff7b72;font-weight:bold">.</span>print(<span style="color:#a5d6ff">&#34;🔴 Choix invalide, veuillez réessayer&#34;</span>, style<span style="color:#ff7b72;font-weight:bold">=</span><span style="color:#a5d6ff">&#34;bold red&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> choice <span style="color:#ff7b72;font-weight:bold">!=</span> <span style="color:#a5d6ff">&#34;0&#34;</span>:
+</span></span><span style="display:flex;"><span>        main_menu()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">if</span> __name__ <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main_menu()
+</span></span></code></pre></div><h2 id="conclusion-">
+  Conclusion 🎉
+  <a class="heading-link" href="#conclusion-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Ce script Python utilise des bibliothèques telles que <code>psutil</code>, <code>requests</code>, <code>subprocess</code>, et <code>rich</code> pour fournir une vue d&rsquo;ensemble détaillée du système et du réseau. C&rsquo;était amusant de créer ce script en utilisant la librairie RICH pour formater le résultat des commandes. J&rsquo;espère que vous avez apprécié ce projet et que vous l&rsquo;avez trouvé utile. N&rsquo;hésitez pas à l&rsquo;utiliser et à le modifier selon vos besoins.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Mickaël" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2001 -
+    
+    2023
+     Mickaël Salmon 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

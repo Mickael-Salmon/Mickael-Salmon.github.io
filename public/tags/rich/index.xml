@@ -8,13 +8,23 @@
     <language>en</language>
     <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/tags/rich/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
+      <title>Développez une architecture back-end sécurisée avec Python et SQL</title>
       <link>https://mickael-salmon.github.io/projects/pythoncrm/</link>
       <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>https://mickael-salmon.github.io/projects/pythoncrm/</guid>
-      <description>Bienvenue ! Link to heading Vous trouverez ici le Projet 12 du parcours Développeur d&amp;rsquo;application - Python 👋 Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading GitHub Repository
-Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail.</description>
+      <description>Bienvenue ! 👋 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail. Le logiciel CRM permet de collecter et de traiter les données des clients et de leurs événements, tout en facilitant la communication entre les différents pôles de l&amp;rsquo;entreprise.</description>
+    </item>
+    
+    <item>
+      <title>Script d&#39;Analyse Système et Réseau</title>
+      <link>https://mickael-salmon.github.io/posts/sysinfo/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/sysinfo/</guid>
+      <description>🌟 Script d&amp;rsquo;Analyse Système et Réseau 🌟 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Ce script Python utilise des bibliothèques telles que psutil, requests, subprocess, et rich pour fournir une vue d&amp;rsquo;ensemble détaillée du système et du réseau.
+Fonctionnalités 🚀 Link to heading Vérification des Interfaces Réseau Permet de vérifier si une interface spécifique est sans fil 📶.
+Récupération de l&amp;rsquo;Adresse IP WAN Obtient l&amp;rsquo;adresse IP WAN externe du système 🌍.</description>
     </item>
     
   </channel>

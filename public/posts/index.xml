@@ -8,6 +8,27 @@
     <language>en</language>
     <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web</title>
+      <link>https://mickael-salmon.github.io/posts/ngrok/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/ngrok/</guid>
+      <description>🌐 Partage Temporaire avec Ngrok: Fichiers &amp;amp; Applications Web 🚀 Link to heading Ce document explique comment utiliser Ngrok pour deux types de partage temporaire: le partage de fichiers et l&amp;rsquo;exposition d&amp;rsquo;applications web en développement.
+C&amp;rsquo;est une approche simple et rapide pour partager des fichiers et des applications web en développement avec d&amp;rsquo;autres personnes. Cela peut être utile pour les développeurs qui souhaitent partager rapidement des fichiers ou des applications web en développement avec d&amp;rsquo;autres personnes.</description>
+    </item>
+    
+    <item>
+      <title>Script d&#39;Analyse Système et Réseau</title>
+      <link>https://mickael-salmon.github.io/posts/sysinfo/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/sysinfo/</guid>
+      <description>🌟 Script d&amp;rsquo;Analyse Système et Réseau 🌟 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Ce script Python utilise des bibliothèques telles que psutil, requests, subprocess, et rich pour fournir une vue d&amp;rsquo;ensemble détaillée du système et du réseau.
+Fonctionnalités 🚀 Link to heading Vérification des Interfaces Réseau Permet de vérifier si une interface spécifique est sans fil 📶.
+Récupération de l&amp;rsquo;Adresse IP WAN Obtient l&amp;rsquo;adresse IP WAN externe du système 🌍.</description>
+    </item>
+    
+    <item>
       <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
       <link>https://mickael-salmon.github.io/posts/poetry/</link>
       <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>

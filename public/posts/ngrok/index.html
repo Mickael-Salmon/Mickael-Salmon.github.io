@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web · Mickaël Salmon
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Mickaël Salmon">
+<meta name="description" content="🌐 Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web 🚀 Link to heading Ce document explique comment utiliser Ngrok pour deux types de partage temporaire: le partage de fichiers et l&rsquo;exposition d&rsquo;applications web en développement.
+C&rsquo;est une approche simple et rapide pour partager des fichiers et des applications web en développement avec d&rsquo;autres personnes. Cela peut être utile pour les développeurs qui souhaitent partager rapidement des fichiers ou des applications web en développement avec d&rsquo;autres personnes.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web"/>
+<meta name="twitter:description" content="🌐 Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web 🚀 Link to heading Ce document explique comment utiliser Ngrok pour deux types de partage temporaire: le partage de fichiers et l&rsquo;exposition d&rsquo;applications web en développement.
+C&rsquo;est une approche simple et rapide pour partager des fichiers et des applications web en développement avec d&rsquo;autres personnes. Cela peut être utile pour les développeurs qui souhaitent partager rapidement des fichiers ou des applications web en développement avec d&rsquo;autres personnes."/>
+
+<meta property="og:title" content="Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web" />
+<meta property="og:description" content="🌐 Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web 🚀 Link to heading Ce document explique comment utiliser Ngrok pour deux types de partage temporaire: le partage de fichiers et l&rsquo;exposition d&rsquo;applications web en développement.
+C&rsquo;est une approche simple et rapide pour partager des fichiers et des applications web en développement avec d&rsquo;autres personnes. Cela peut être utile pour les développeurs qui souhaitent partager rapidement des fichiers ou des applications web en développement avec d&rsquo;autres personnes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mickael-salmon.github.io/posts/ngrok/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-01T00:00:00+00:00" />
+
+
+
+
+<link rel="canonical" href="https://mickael-salmon.github.io/posts/ngrok/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css" integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66&#43;O2HK0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Mickaël Salmon
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/A%20propos/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projets</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://mickael-salmon.github.io/posts/ngrok/">
+              Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-04-01T00:00:00Z">
+                April 1, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/python/">python</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/ngrok/">ngrok</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/partage/">partage</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/fichiers/">fichiers</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/applications/">applications</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/web/">web</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="-partage-temporaire-avec-ngrok-fichiers--applications-web-">
+  🌐 Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web 🚀
+  <a class="heading-link" href="#-partage-temporaire-avec-ngrok-fichiers--applications-web-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Ce document explique comment utiliser Ngrok pour deux types de partage temporaire: le partage de fichiers et l&rsquo;exposition d&rsquo;applications web en développement.</p>
+<p>C&rsquo;est une approche simple et rapide pour partager des fichiers et des applications web en développement avec d&rsquo;autres personnes. Cela peut être utile pour les développeurs qui souhaitent partager rapidement des fichiers ou des applications web en développement avec d&rsquo;autres personnes.</p>
+<h2 id="-table-des-matières">
+  📋 Table des matières
+  <a class="heading-link" href="#-table-des-mati%c3%a8res">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li><a href="#-partage-temporaire-avec-ngrok-fichiers--applications-web-" >🌐 Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web 🚀</a>
+<ul>
+<li><a href="#-table-des-mati%c3%a8res" >📋 Table des matières</a></li>
+<li><a href="#pr%c3%a9requis-%ef%b8%8f" >Prérequis 🛠️</a></li>
+<li><a href="#instructions-sur-comment-pr%c3%a9parer-votre-environnement-virtuel-python" >Instructions sur comment préparer votre environnement virtuel Python</a></li>
+<li><a href="#pr%c3%a9requis" >Prérequis</a></li>
+<li><a href="#instructions" >Instructions</a></li>
+<li><a href="#-pour-les-utilisateurs-de-bash-ou-zsh" >🐚 Pour les utilisateurs de Bash ou Zsh</a>
+<ul>
+<li><a href="#bash-ou-zsh" >Bash ou Zsh</a></li>
+</ul>
+</li>
+<li><a href="#-pour-les-utilisateurs-de-fish-shell" >🐟 Pour les utilisateurs de Fish Shell</a>
+<ul>
+<li><a href="#fish" >Fish</a></li>
+</ul>
+</li>
+<li><a href="#apr%c3%a8s-utilisation-du-script---d%c3%a9sactivation-de-lenvironnement-virtuel" >Après utilisation du script - Désactivation de l&rsquo;environnement virtuel</a></li>
+<li><a href="#installation-de-ngrok-" >Installation de Ngrok 📦</a></li>
+<li><a href="#cr%c3%a9ation-dun-compte-ngrok-" >Création d&rsquo;un compte Ngrok 👤</a></li>
+<li><a href="#partage-de-fichiers-avec-python-" >Partage de Fichiers avec Python 📁</a></li>
+<li><a href="#montrer-des-applications-web-" >Montrer des Applications Web 💻</a></li>
+<li><a href="#utilisation-" >Utilisation 🚀</a></li>
+<li><a href="#am%c3%a9liorations-possibles-%ef%b8%8f" >Améliorations possibles 🛠️</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="prérequis-">
+  Prérequis 🛠️
+  <a class="heading-link" href="#pr%c3%a9requis-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Python 3.x</li>
+<li>curl</li>
+<li>jq (optionnel)</li>
+</ul>
+<h2 id="instructions-sur-comment-préparer-votre-environnement-virtuel-python">
+  Instructions sur comment préparer votre environnement virtuel Python
+  <a class="heading-link" href="#instructions-sur-comment-pr%c3%a9parer-votre-environnement-virtuel-python">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>pour exécuter le script de partage de fichiers. Les instructions diffèrent selon le shell que vous utilisez : bash, zsh ou fish.</p>
+<h2 id="prérequis">
+  Prérequis
+  <a class="heading-link" href="#pr%c3%a9requis">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Python 3.x</li>
+<li>pip</li>
+<li>virtualenv (optionnel)</li>
+</ul>
+<h2 id="instructions">
+  Instructions
+  <a class="heading-link" href="#instructions">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h2 id="-pour-les-utilisateurs-de-bash-ou-zsh">
+  🐚 Pour les utilisateurs de Bash ou Zsh
+  <a class="heading-link" href="#-pour-les-utilisateurs-de-bash-ou-zsh">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="bash-ou-zsh">
+  Bash ou Zsh
+  <a class="heading-link" href="#bash-ou-zsh">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Ouvrez votre terminal et naviguez vers le dossier contenant le script Python.</li>
+<li>Exécutez les commandes suivantes pour créer et activer un environnement virtuel :
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python -m venv venv
+</span></span><span style="display:flex;"><span>source venv/bin/activate
+</span></span></code></pre></div></li>
+<li>Installez les packages requis :
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install -r requirements.txt
+</span></span></code></pre></div></li>
+<li>Exécutez le script Python :
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python quickShare.py
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="-pour-les-utilisateurs-de-fish-shell">
+  🐟 Pour les utilisateurs de Fish Shell
+  <a class="heading-link" href="#-pour-les-utilisateurs-de-fish-shell">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="fish">
+  Fish
+  <a class="heading-link" href="#fish">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li>Ouvrez votre terminal et naviguez vers le dossier contenant le script Python.</li>
+<li>Exécutez les commandes suivantes pour créer et activer un environnement virtuel :
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#d2a8ff;font-weight:bold">python</span> -m venv venv
+</span></span><span style="display:flex;"><span>source venv/bin/activate.fish
+</span></span></code></pre></div></li>
+<li>Installez les packages requis :
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#d2a8ff;font-weight:bold">pip</span> install -r requirements.txt
+</span></span></code></pre></div></li>
+<li>Exécutez le script Python :
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#d2a8ff;font-weight:bold">python</span> quickShare.py
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="après-utilisation-du-script---désactivation-de-lenvironnement-virtuel">
+  Après utilisation du script - Désactivation de l&rsquo;environnement virtuel
+  <a class="heading-link" href="#apr%c3%a8s-utilisation-du-script---d%c3%a9sactivation-de-lenvironnement-virtuel">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Pour bash ou zsh : <code>deactivate</code></li>
+<li>Pour fish : <code>deactivate</code></li>
+</ul>
+<h2 id="installation-de-ngrok-">
+  Installation de Ngrok 📦
+  <a class="heading-link" href="#installation-de-ngrok-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Vous pouvez installer Ngrok en suivant les instructions sur leur <a href="https://ngrok.com/download"  class="external-link" target="_blank" rel="noopener">site officiel</a>.</p>
+<h2 id="création-dun-compte-ngrok-">
+  Création d&rsquo;un compte Ngrok 👤
+  <a class="heading-link" href="#cr%c3%a9ation-dun-compte-ngrok-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Pour utiliser Ngrok, vous aurez besoin d&rsquo;un compte. Vous pouvez vous inscrire sur leur <a href="https://ngrok.com/"  class="external-link" target="_blank" rel="noopener">site web</a>. Après l&rsquo;inscription, récupérez votre authtoken et initialisez-le en utilisant la commande suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ngrok authtoken VOTRE_TOKEN_ICI
+</span></span></code></pre></div><hr>
+<h2 id="partage-de-fichiers-avec-python-">
+  Partage de Fichiers avec Python 📁
+  <a class="heading-link" href="#partage-de-fichiers-avec-python-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Au lieu d&rsquo;utiliser un script shell, nous utilisons ici un script Python pour un meilleur contrôle et une meilleure gestion des processus.</p>
+<p>Le script Python suivant gère le partage de fichiers temporaire et permet d&rsquo;utiliser Ctrl-C pour arrêter les services.</p>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">subprocess</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">time</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">signal</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">sys</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">json</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">import</span> <span style="color:#ff7b72">requests</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">colorama</span> <span style="color:#ff7b72">import</span> Fore, Style
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">from</span> <span style="color:#ff7b72">tqdm</span> <span style="color:#ff7b72">import</span> tqdm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">start_ngrok</span>(port):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">global</span> ngrok_process
+</span></span><span style="display:flex;"><span>    print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>GREEN<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Démarrage du tunnel ngrok sur le port </span><span style="color:#a5d6ff">{</span>port<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">...</span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>    ngrok_process <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>Popen([<span style="color:#a5d6ff">&#34;ngrok&#34;</span>, <span style="color:#a5d6ff">&#34;http&#34;</span>, str(port)], stdout<span style="color:#ff7b72;font-weight:bold">=</span>subprocess<span style="color:#ff7b72;font-weight:bold">.</span>PIPE)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Wait a bit for ngrok to initialize and get the public URL</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">for</span> _ <span style="color:#ff7b72;font-weight:bold">in</span> tqdm(range(<span style="color:#a5d6ff">10</span>)):
+</span></span><span style="display:flex;"><span>        time<span style="color:#ff7b72;font-weight:bold">.</span>sleep(<span style="color:#a5d6ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#ff7b72;font-weight:bold">=</span> requests<span style="color:#ff7b72;font-weight:bold">.</span>get(<span style="color:#a5d6ff">&#34;http://localhost:4040/api/tunnels&#34;</span>)
+</span></span><span style="display:flex;"><span>    ngrok_data <span style="color:#ff7b72;font-weight:bold">=</span> json<span style="color:#ff7b72;font-weight:bold">.</span>loads(response<span style="color:#ff7b72;font-weight:bold">.</span>text)
+</span></span><span style="display:flex;"><span>    ngrok_url <span style="color:#ff7b72;font-weight:bold">=</span> ngrok_data[<span style="color:#a5d6ff">&#39;tunnels&#39;</span>][<span style="color:#a5d6ff">0</span>][<span style="color:#a5d6ff">&#39;public_url&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b949e;font-style:italic"># Check if ngrok initialized properly</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> <span style="color:#ff7b72;font-weight:bold">not</span> ngrok_url:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>RED<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Erreur : ngrok n&#39;a pas pu initialiser le tunnel.</span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">else</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>BLUE<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Lien de partage : </span><span style="color:#a5d6ff">{</span>ngrok_url<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">/</span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">def</span> <span style="color:#d2a8ff;font-weight:bold">cleanup</span>(signum, frame):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>YELLOW<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Arrêt du serveur HTTP et de ngrok...</span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> http_server_process:
+</span></span><span style="display:flex;"><span>        http_server_process<span style="color:#ff7b72;font-weight:bold">.</span>terminate()
+</span></span><span style="display:flex;"><span>    <span style="color:#ff7b72">if</span> ngrok_process:
+</span></span><span style="display:flex;"><span>        ngrok_process<span style="color:#ff7b72;font-weight:bold">.</span>terminate()
+</span></span><span style="display:flex;"><span>    sys<span style="color:#ff7b72;font-weight:bold">.</span>exit(<span style="color:#a5d6ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Register the cleanup function for Ctrl+C</span>
+</span></span><span style="display:flex;"><span>signal<span style="color:#ff7b72;font-weight:bold">.</span>signal(signal<span style="color:#ff7b72;font-weight:bold">.</span>SIGINT, cleanup)
+</span></span><span style="display:flex;"><span>signal<span style="color:#ff7b72;font-weight:bold">.</span>signal(signal<span style="color:#ff7b72;font-weight:bold">.</span>SIGTERM, cleanup)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Initialize subprocess objects</span>
+</span></span><span style="display:flex;"><span>http_server_process <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#79c0ff">None</span>
+</span></span><span style="display:flex;"><span>ngrok_process <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#79c0ff">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Ask user for the type of sharing</span>
+</span></span><span style="display:flex;"><span>choice <span style="color:#ff7b72;font-weight:bold">=</span> input(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>MAGENTA<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Quel type de partage souhaitez-vous ?</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">1) Partage de fichiers</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">2) Partage d&#39;application web</span><span style="color:#79c0ff">\n</span><span style="color:#a5d6ff">Choix: </span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">if</span> choice <span style="color:#ff7b72;font-weight:bold">not</span> <span style="color:#ff7b72;font-weight:bold">in</span> [<span style="color:#a5d6ff">&#39;1&#39;</span>, <span style="color:#a5d6ff">&#39;2&#39;</span>]:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>RED<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Choix invalide.</span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>    sys<span style="color:#ff7b72;font-weight:bold">.</span>exit(<span style="color:#a5d6ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Ask user for the port number</span>
+</span></span><span style="display:flex;"><span>port <span style="color:#ff7b72;font-weight:bold">=</span> input(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>CYAN<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Entrez le numéro du port sur lequel démarrer le service (par exemple, 8080 ou 3000): </span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Start the appropriate service based on the user choice</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">if</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#39;1&#39;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>GREEN<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Démarrage du serveur HTTP sur le port </span><span style="color:#a5d6ff">{</span>port<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">...</span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>    http_server_process <span style="color:#ff7b72;font-weight:bold">=</span> subprocess<span style="color:#ff7b72;font-weight:bold">.</span>Popen([<span style="color:#a5d6ff">&#34;python3&#34;</span>, <span style="color:#a5d6ff">&#34;-m&#34;</span>, <span style="color:#a5d6ff">&#34;http.server&#34;</span>, port])
+</span></span><span style="display:flex;"><span>    start_ngrok(port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff7b72">elif</span> choice <span style="color:#ff7b72;font-weight:bold">==</span> <span style="color:#a5d6ff">&#39;2&#39;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>GREEN<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Assurez-vous que votre application web est en cours d&#39;exécution sur le port </span><span style="color:#a5d6ff">{</span>port<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">...</span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>    start_ngrok(port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b949e;font-style:italic"># Wait for user to stop the HTTP server and ngrok</span>
+</span></span><span style="display:flex;"><span>input(<span style="color:#79c0ff">f</span><span style="color:#a5d6ff">&#34;</span><span style="color:#a5d6ff">{</span>Fore<span style="color:#ff7b72;font-weight:bold">.</span>YELLOW<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">Appuyez sur [Enter] ou Ctrl+C pour arrêter le serveur et ngrok...</span><span style="color:#a5d6ff">{</span>Style<span style="color:#ff7b72;font-weight:bold">.</span>RESET_ALL<span style="color:#a5d6ff">}</span><span style="color:#a5d6ff">&#34;</span>)
+</span></span><span style="display:flex;"><span>cleanup(<span style="color:#79c0ff">None</span>, <span style="color:#79c0ff">None</span>)
+</span></span></code></pre></div><p>Pour l&rsquo;utiliser :</p>
+<ol>
+<li>Rendez le script exécutable : <code>chmod +x NOM_DU_SCRIPT.py</code></li>
+<li>Exécutez le script : <code>./NOM_DU_SCRIPT.py</code></li>
+<li>Suivez les instructions à l&rsquo;écran.</li>
+</ol>
+<hr>
+<h2 id="montrer-des-applications-web-">
+  Montrer des Applications Web 💻
+  <a class="heading-link" href="#montrer-des-applications-web-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Pour exposer une application web en développement, suivez les étapes ci-dessous :</p>
+<ol>
+<li>Assurez-vous que votre application web est en cours d&rsquo;exécution localement sur un port spécifique (par exemple, 3000).</li>
+<li>Ouvrez un terminal et lancez le script mais cette fois sélectionnez l&rsquo;option 2:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ngrok http <span style="color:#a5d6ff">3000</span>
+</span></span></code></pre></div><p>Cela créera un tunnel Ngrok vers votre application web locale, et vous pourrez partager l&rsquo;URL générée.</p>
+<hr>
+<h2 id="utilisation-">
+  Utilisation 🚀
+  <a class="heading-link" href="#utilisation-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ol>
+<li>Rendez le script exécutable : <code>chmod +x NOM_DU_SCRIPT.py</code></li>
+<li>Exécutez le script : <code>./NOM_DU_SCRIPT.py</code></li>
+<li>Suivez les instructions à l&rsquo;écran.</li>
+</ol>
+<h2 id="améliorations-possibles-">
+  Améliorations possibles 🛠️
+  <a class="heading-link" href="#am%c3%a9liorations-possibles-">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Ajout d&rsquo;une interface utilisateur pour une utilisation encore plus facile.</li>
+<li>Intégration d&rsquo;autres méthodes de partage de fichiers.</li>
+<li>NGROK permet d&rsquo;utiliser des commandes pour automatiser le partage de fichiers et d&rsquo;applications web. Pour plus d&rsquo;informations, consultez la <a href="https://ngrok.com/docs"  class="external-link" target="_blank" rel="noopener">documentation</a>.</li>
+<li>Vous pouvez utiliser votre propre domaine personnalisé avec NGROK. Pour plus d&rsquo;informations, consultez la <a href="https://ngrok.com/docs#custom-domains"  class="external-link" target="_blank" rel="noopener">documentation</a>.</li>
+<li>Vous pouvez utiliser docker pour exécuter NGROK. Pour plus d&rsquo;informations, consultez la <a href="https://ngrok.com/docs#docker-examples"  class="external-link" target="_blank" rel="noopener">documentation</a>.</li>
+</ul>
+<hr>
+<p>🎉🎉🎉🎉</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Mickaël" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2001 -
+    
+    2023
+     Mickaël Salmon 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

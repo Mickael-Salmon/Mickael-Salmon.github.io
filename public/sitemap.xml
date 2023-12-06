@@ -2,6 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mickael-salmon.github.io/about/presentation/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/about/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/blockchain/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/cryptomonnaies/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/cybers%C3%A9curit%C3%A9/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/d%C3%A9veloppement/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/entreprenariat/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/linux/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/litt%C3%A9rature/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/marketing-digital/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/microsoft/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/project-management/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/python/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/s%C3%A9curit%C3%A9/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/</loc>
+    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/applications/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://mickael-salmon.github.io/tags/backend/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -17,10 +68,16 @@
     <loc>https://mickael-salmon.github.io/tags/datetime/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://mickael-salmon.github.io/projects/pythoncrm/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://mickael-salmon.github.io/tags/factoryboy/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mickael-salmon.github.io/tags/faker/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/fichiers/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mickael-salmon.github.io/tags/frontend/</loc>
@@ -29,7 +86,13 @@
     <loc>https://mickael-salmon.github.io/tags/jwt/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mickael-salmon.github.io/</loc>
+    <loc>https://mickael-salmon.github.io/tags/ngrok/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/tags/partage/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/posts/ngrok/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mickael-salmon.github.io/tags/poetry/</loc>
@@ -44,13 +107,19 @@
     <loc>https://mickael-salmon.github.io/projects/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://mickael-salmon.github.io/tags/psutil/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://mickael-salmon.github.io/tags/pytest/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mickael-salmon.github.io/tags/python/</loc>
+    <loc>https://mickael-salmon.github.io/tags/requests/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mickael-salmon.github.io/tags/rich/</loc>
+    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mickael-salmon.github.io/posts/sysinfo/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mickael-salmon.github.io/tags/sentry/</loc>
@@ -59,13 +128,13 @@
     <loc>https://mickael-salmon.github.io/tags/sqlalchemy/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mickael-salmon.github.io/tags/</loc>
+    <loc>https://mickael-salmon.github.io/tags/subprocess/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mickael-salmon.github.io/posts/poetry/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mickael-salmon.github.io/projects/pythoncrm/</loc>
+    <loc>https://mickael-salmon.github.io/tags/web/</loc>
     <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mickael-salmon.github.io/articles/poetry/</loc>

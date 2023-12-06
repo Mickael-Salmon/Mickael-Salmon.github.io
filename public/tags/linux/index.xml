@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Mickaël Salmon</title>
+    <link>https://mickael-salmon.github.io/tags/linux/</link>
+    <description>Recent content in linux on Mickaël Salmon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Propos</title>
+      <link>https://mickael-salmon.github.io/about/presentation/</link>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/about/presentation/</guid>
+      <description>Mickaël 🚀 - IT Manager
+Bonjour! 👋
+Je suis Mickaël, un passionné de technologie basé en Suisse romande.
+Avec une expertise étendue en infrastructure système et réseaux, sécurité informatique 🔒, un intérêt grandissant pour le développement logiciel 🖥️ et une volonté de conserver une approche KISS dans le management de projets, j&amp;rsquo;apporte une vision holistique et innovante à chaque défi.
+Ma passion pour la technologie m&amp;rsquo;a conduit à me spécialiser dans des domaines aussi divers que le hacking éthique et le pentesting, le développement en Python, Linux et l&amp;rsquo;open source mais aussi les environnements Microsoft.</description>
+    </item>
+    
+    <item>
+      <title>Script d&#39;Analyse Système et Réseau</title>
+      <link>https://mickael-salmon.github.io/posts/sysinfo/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/sysinfo/</guid>
+      <description>🌟 Script d&amp;rsquo;Analyse Système et Réseau 🌟 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Ce script Python utilise des bibliothèques telles que psutil, requests, subprocess, et rich pour fournir une vue d&amp;rsquo;ensemble détaillée du système et du réseau.
+Fonctionnalités 🚀 Link to heading Vérification des Interfaces Réseau Permet de vérifier si une interface spécifique est sans fil 📶.
+Récupération de l&amp;rsquo;Adresse IP WAN Obtient l&amp;rsquo;adresse IP WAN externe du système 🌍.</description>
+    </item>
+    
+  </channel>
+</rss>

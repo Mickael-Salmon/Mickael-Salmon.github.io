@@ -6,7 +6,50 @@
     <description>Recent content in python on Mickaël Salmon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Propos</title>
+      <link>https://mickael-salmon.github.io/about/presentation/</link>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/about/presentation/</guid>
+      <description>Mickaël 🚀 - IT Manager
+Bonjour! 👋
+Je suis Mickaël, un passionné de technologie basé en Suisse romande.
+Avec une expertise étendue en infrastructure système et réseaux, sécurité informatique 🔒, un intérêt grandissant pour le développement logiciel 🖥️ et une volonté de conserver une approche KISS dans le management de projets, j&amp;rsquo;apporte une vision holistique et innovante à chaque défi.
+Ma passion pour la technologie m&amp;rsquo;a conduit à me spécialiser dans des domaines aussi divers que le hacking éthique et le pentesting, le développement en Python, Linux et l&amp;rsquo;open source mais aussi les environnements Microsoft.</description>
+    </item>
+    
+    <item>
+      <title>Développez une architecture back-end sécurisée avec Python et SQL</title>
+      <link>https://mickael-salmon.github.io/projects/pythoncrm/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/projects/pythoncrm/</guid>
+      <description>Bienvenue ! 👋 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail. Le logiciel CRM permet de collecter et de traiter les données des clients et de leurs événements, tout en facilitant la communication entre les différents pôles de l&amp;rsquo;entreprise.</description>
+    </item>
+    
+    <item>
+      <title>Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web</title>
+      <link>https://mickael-salmon.github.io/posts/ngrok/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/ngrok/</guid>
+      <description>🌐 Partage Temporaire avec Ngrok: Fichiers &amp;amp; Applications Web 🚀 Link to heading Ce document explique comment utiliser Ngrok pour deux types de partage temporaire: le partage de fichiers et l&amp;rsquo;exposition d&amp;rsquo;applications web en développement.
+C&amp;rsquo;est une approche simple et rapide pour partager des fichiers et des applications web en développement avec d&amp;rsquo;autres personnes. Cela peut être utile pour les développeurs qui souhaitent partager rapidement des fichiers ou des applications web en développement avec d&amp;rsquo;autres personnes.</description>
+    </item>
+    
+    <item>
+      <title>Script d&#39;Analyse Système et Réseau</title>
+      <link>https://mickael-salmon.github.io/posts/sysinfo/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/sysinfo/</guid>
+      <description>🌟 Script d&amp;rsquo;Analyse Système et Réseau 🌟 Link to heading Vous trouverez ici le Projet complet : GitHub Repository Link to heading Ce script Python utilise des bibliothèques telles que psutil, requests, subprocess, et rich pour fournir une vue d&amp;rsquo;ensemble détaillée du système et du réseau.
+Fonctionnalités 🚀 Link to heading Vérification des Interfaces Réseau Permet de vérifier si une interface spécifique est sans fil 📶.
+Récupération de l&amp;rsquo;Adresse IP WAN Obtient l&amp;rsquo;adresse IP WAN externe du système 🌍.</description>
+    </item>
+    
     <item>
       <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
       <link>https://mickael-salmon.github.io/posts/poetry/</link>
@@ -15,16 +58,6 @@
       <guid>https://mickael-salmon.github.io/posts/poetry/</guid>
       <description>Utilisation de Poetry pour la gestion des dépendances en Python 🐍 Link to heading Introduction 📚 Link to heading Poetry, un outil de gestion de dépendances et de packaging pour Python. Il permet de déclarer les bibliothèques dont dépend un logiciel et de les installer dans un environnement virtuel.
 Installation 💻 Link to heading macOS &amp;amp; Linux 🍎🐧 Link to heading curl -sSL https://install.python-poetry.org | python3 - Windows 💻 Link to heading (Invoke-WebRequest -Uri https://install.</description>
-    </item>
-    
-    <item>
-      <title>Utilisation de Poetry pour la gestion des dépendances en Python</title>
-      <link>https://mickael-salmon.github.io/projects/pythoncrm/</link>
-      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://mickael-salmon.github.io/projects/pythoncrm/</guid>
-      <description>Bienvenue ! Link to heading Vous trouverez ici le Projet 12 du parcours Développeur d&amp;rsquo;application - Python 👋 Link to heading Développez une architecture back-end sécurisée avec Python et SQL Link to heading GitHub Repository
-Contexte Link to heading Epic Events est une entreprise qui organise des événements (fêtes, réunions professionnelles, manifestations hors les murs) pour ses clients. Ils souhaitent développer un logiciel CRM (Customer Relationship Management) pour améliorer leur travail.</description>
     </item>
     
   </channel>

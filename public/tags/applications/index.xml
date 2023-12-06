@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>applications on Mickaël Salmon</title>
+    <link>https://mickael-salmon.github.io/tags/applications/</link>
+    <description>Recent content in applications on Mickaël Salmon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://mickael-salmon.github.io/tags/applications/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Partage Temporaire avec Ngrok: Fichiers &amp; Applications Web</title>
+      <link>https://mickael-salmon.github.io/posts/ngrok/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://mickael-salmon.github.io/posts/ngrok/</guid>
+      <description>🌐 Partage Temporaire avec Ngrok: Fichiers &amp;amp; Applications Web 🚀 Link to heading Ce document explique comment utiliser Ngrok pour deux types de partage temporaire: le partage de fichiers et l&amp;rsquo;exposition d&amp;rsquo;applications web en développement.
+C&amp;rsquo;est une approche simple et rapide pour partager des fichiers et des applications web en développement avec d&amp;rsquo;autres personnes. Cela peut être utile pour les développeurs qui souhaitent partager rapidement des fichiers ou des applications web en développement avec d&amp;rsquo;autres personnes.</description>
+    </item>
+    
+  </channel>
+</rss>
