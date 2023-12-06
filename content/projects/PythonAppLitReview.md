@@ -1,6 +1,6 @@
 ---
 title: "Développez une application Web en utilisant Django"
-date: 2023-07-01
+date: 2023-09-01
 tags: ["python", "django", "BD", "backend", "frontend", "HTML", "CSS", "Bootstrap", "JavaScript","Git", "GitHub"]
 draft: false
 ---

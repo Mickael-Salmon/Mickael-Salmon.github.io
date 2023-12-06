@@ -1,6 +1,6 @@
 ---
 title: "Développez une architecture back-end sécurisée avec Python et SQL"
-date: 2023-04-01
+date: 2023-10-01
 tags: ["python", "crm", "backend", "frontend", "postgresql", "sqlalchemy", "jwt", "sentry", "rich", "pytest", "faker", "factoryboy", "bcrypt", "cryptography", "datetime"]
 draft: false
 ---

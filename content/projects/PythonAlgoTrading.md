@@ -1,6 +1,6 @@
 ---
 title: "Résolvez des problèmes en utilisant des algorithmes en Python"
-date: 2023-03-01
+date: 2023-08-01
 tags: ["python", "django", "BD", "backend", "frontend", "HTML", "CSS", "Bootstrap", "JavaScript","Git", "GitHub"]
 draft: false
 ---

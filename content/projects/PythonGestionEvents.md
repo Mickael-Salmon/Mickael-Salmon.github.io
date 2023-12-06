@@ -1,6 +1,6 @@
 ---
 title: "Améliorez une application Web Python par des tests et du débogage"
-date: 2023-06-01
+date: 2023-09-01
 tags: ["python", "django", "tests", "debug", "git"]
 draft: false
 ---

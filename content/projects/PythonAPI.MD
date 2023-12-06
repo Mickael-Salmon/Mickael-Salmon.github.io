@@ -1,6 +1,6 @@
 ﻿---
 title: " Créez une API sécurisée RESTful en utilisant Django REST"
-date: 2023-05-01
+date: 2023-06-01
 tags: ["python", "API Restful", "Django", "backend", "Postman", "OWASP", "Green Code", "Poetry", "JWT", "authentification", "sécurité"]
 draft: false
 ---

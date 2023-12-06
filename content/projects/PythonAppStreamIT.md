@@ -1,6 +1,6 @@
 ---
 title: "Développez une interface utilisateur pour une application web Python"
-date: 2023-02-01
+date: 2023-08-01
 tags: ["python", "django", "BD", "backend", "frontend", "HTML", "CSS", "Bootstrap", "JavaScript","Git", "GitHub"]
 draft: false
 ---
