@@ -9,14 +9,14 @@ draft: false
 <img src="https://legacy.python.org/community/logos/python-logo-master-v3-TM.png">
 </p>
 
-# Bienvenue !
-## Vous trouverez ici le Projet 12 du parcours Développeur d'application - Python 👋
+# Bienvenue ! 👋
+
+## Vous trouverez ici le Projet complet : [GitHub Repository](https://github.com/Mickael-Salmon/OCP12/)
 
 # Développez une architecture back-end sécurisée avec Python et SQL
 
 ![Epic Events](https://user.oc-static.com/upload/2023/07/26/16903799358611_P12-02.png)
 
-[GitHub Repository](https://github.com/Mickael-Salmon/OCP12/)
 
 # Contexte
 
