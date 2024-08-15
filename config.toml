@@ -15,15 +15,15 @@ style = "github-dark"
   author = "Mickaël Salmon"
   info = "IT Manager"
   description = "Portfolio"
-  keywords = "blog,developer,personal"
+  keywords = "blog,developer,it, security, scripts, doc, personal"
   avatarurl = "images/avatar.jpg"
-  #gravatar = "john.doe@example.com"
+  #gravatar = "mail@mickael-salmon.ch"
 
   faviconSVG = "/img/favicon.svg"
   favicon_32 = "/img/favicon-32x32.png"
   favicon_16 = "/img/favicon-16x16.png"
 
-  since = 2022
+  since =
 
   enableTwemoji = true
 
@@ -48,15 +48,33 @@ style = "github-dark"
   url = "https://github.com/mickael-salmon/"
 
 # Menu links
-[[menu.main]]
-  name = "Blog"
-  weight = 1
-  url  = "posts/"
-[[menu.main]]
-  name = "About"
-  weight = 2
-  url = "about/"
-[[menu.main]]
-  name = "Projets"
-  weight = 3
-  url = "projects/"
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Articles"
+    url = "/articles/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Documentation"
+    url = "/docs/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 4
+
+  [[menu.main]]
+    name = "Readings"
+    url = "/readings/"
+    weight = 5
+
+  [[menu.main]]
+    name = "Scripts"
+    url = "/scripts/"
+    weight = 6
